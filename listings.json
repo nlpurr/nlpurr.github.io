@@ -1,7 +1,9 @@
 [
   {
-    "listing": "/stream/index.html",
-    "items": []
+    "listing": "/posts/index.html",
+    "items": [
+      "/posts/example_collapsible.html"
+    ]
   },
   {
     "listing": "/index.html",
@@ -10,9 +12,7 @@
     ]
   },
   {
-    "listing": "/posts/index.html",
-    "items": [
-      "/posts/example_collapsible.html"
-    ]
+    "listing": "/stream/index.html",
+    "items": []
   }
 ]
