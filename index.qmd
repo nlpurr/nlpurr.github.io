@@ -24,7 +24,7 @@ Hi, I'm NLPurr
 ![](images/me.png)
 :::
 
-As a PhD student, I specialize in SciComm of academic NLP papers, with a focus on explainability, prompting, benchmarking, metrics, red-teaming, and evaluation.
+As a PhD student, I specialize in SciComm of academic NLP papers, with a focus on explainability, prompting, benchmarking, metrics, red-teaming, and evaluation. On this account, I mostly talk specifically about LLMs and dissecting and collating recent papers.
 
 Beyond academia, I am actively seeking research scientist positions in model evaluation, metric design, model explanation, and interpretation. If my blog posts caught your attention, I invite you to connect with me on Twitter DMs. Let's chat!
 
