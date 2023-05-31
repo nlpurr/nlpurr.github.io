@@ -1,0 +1,66 @@
+project:
+  type: website
+  preview:
+    port: 4200
+execute:
+  freeze: true
+
+website:
+  open-graph: true
+  back-to-top-navigation: true
+  page-navigation: true
+  twitter-card:
+    creator: "@NLPurr"
+    site: "@NLPurr"
+  title: "NLPurr"
+  favicon: favicon.ico
+  site-url: https://nlpurr.github.io
+
+  navbar:
+    background: dark
+    pinned: true
+    collapse: true
+    search: true
+    left:
+      - icon: text-indent-left
+        href: posts/index.qmd
+      - icon: cursor-text
+        href: stream/index.qmd
+    right:
+      - icon: twitter
+        text: Find me on Twitter
+        href: https://twitter.com/NLPurr
+      - icon: rss
+        text: Feed
+        href: posts/index.xml
+
+format:
+  html:
+    # theme: sketchy
+    theme: quarto_mod.scss
+    highlight-style: quarto_mod.theme
+    include-in-header: [analytics-head.html]
+    # include-after-body: [analytics-body.html]
+    metadata:
+      pagetitle: "{{< meta title >}}"
+      freeze: true
+      title-block-banner: false
+      author: NLPurr
+      title-block-categories: true
+      toc-depth: 5
+
+comments:
+  giscus: 
+    repo: nlpurr/nlpurr.github.io
+    repo-id: R_kgDOJo8TQA
+    category: Announcements
+    category-id: DIC_kwDOJo8TQM4CW3Zf
+    mapping: pathname
+    loading: lazy
+    input-position: top
+    reactions-enabled: true
+  
+  hypothesis:
+    theme: clean
+    openSidebar: false
+    showHighlights: whenSidebarOpen
