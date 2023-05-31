@@ -10,7 +10,7 @@ listing:
   sort-ui: false
   date-format: MM-DD-YYYY
   exclude:
-    title: "Posts"
+    title: "Blog"
 comments: false
 description: Recent posts and commentary
 pagetitle: NLPurr

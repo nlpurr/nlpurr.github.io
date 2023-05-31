@@ -1,7 +1,7 @@
 project:
   type: website
   preview:
-    port: 4200
+    port: 4201
 execute:
   freeze: true
 
