@@ -9,7 +9,7 @@
 <meta name="author" content="">
 <meta name="description" content="Long Form Posts">
 
-<title>Posts</title>
+<title>Blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-categories','listing-title','listing-subtitle','listing-date','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -99,10 +99,10 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="alternate" type="application/rss+xml" title="NLPurr" href="index.xml"><meta property="og:title" content="Posts">
+<link rel="alternate" type="application/rss+xml" title="NLPurr" href="index.xml"><meta property="og:title" content="Blog">
 <meta property="og:description" content="Long Form Posts">
 <meta property="og:site-name" content="NLPurr">
-<meta name="twitter:title" content="Posts">
+<meta name="twitter:title" content="Blog">
 <meta name="twitter:description" content="Long Form Posts">
 <meta name="twitter:creator" content="@NLPurr">
 <meta name="twitter:site" content="@NLPurr">
@@ -129,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link active" href="../posts/index.html" rel="" target="" aria-current="page"><i class="bi bi-text-indent-left" role="img">
 </i> 
- <span class="menu-text">Posts</span></a>
+ <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../stream/index.html" rel="" target=""><i class="bi bi-cursor-text" role="img">
@@ -161,12 +161,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(0)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Try">Try <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header">
-<h1 class="title display-7">Posts</h1>
+<h1 class="title display-7">Blog</h1>
 <p class="author"></p>
 
 </header>
@@ -194,7 +194,35 @@ for (let i = 0; i < counts.length; i++) {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Try" data-listing-date-sort="1685565443000" data-listing-file-modified-sort="1685565443352" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="body">
+<a href="../posts/example_collapsible.html">
+<h3 class="no-anchor listing-title">
+Collapse-social-embeds Example
+</h3>
+<div class="listing-subtitle">
 
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Try'); return false;">
+Try
+</div>
+</div>
+<a href="../posts/example_collapsible.html">
+<div class="listing-description">
+
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/example_collapsible.html">
+<div class="listing-date">
+05-31-2023
+</div>
+</a>
+</div>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items

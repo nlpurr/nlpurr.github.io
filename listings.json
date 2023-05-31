@@ -1,14 +1,18 @@
 [
   {
-    "listing": "/posts/index.html",
+    "listing": "/stream/index.html",
     "items": []
   },
   {
     "listing": "/index.html",
-    "items": []
+    "items": [
+      "/posts/example_collapsible.html"
+    ]
   },
   {
-    "listing": "/stream/index.html",
-    "items": []
+    "listing": "/posts/index.html",
+    "items": [
+      "/posts/example_collapsible.html"
+    ]
   }
 ]

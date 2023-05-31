@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nlpurr.github.io/posts/index.html</loc>
-    <lastmod>2023-05-31T17:42:34.544Z</lastmod>
+    <loc>https://nlpurr.github.io/stream/index.html</loc>
+    <lastmod>2023-05-31T20:37:37.496Z</lastmod>
   </url>
   <url>
     <loc>https://nlpurr.github.io/index.html</loc>
-    <lastmod>2023-05-31T17:42:36.144Z</lastmod>
+    <lastmod>2023-05-31T20:37:38.296Z</lastmod>
   </url>
   <url>
-    <loc>https://nlpurr.github.io/stream/index.html</loc>
-    <lastmod>2023-05-31T17:42:36.968Z</lastmod>
+    <loc>https://nlpurr.github.io/posts/example_collapsible.html</loc>
+    <lastmod>2023-05-31T20:37:38.996Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nlpurr.github.io/posts/index.html</loc>
+    <lastmod>2023-05-31T20:37:40.768Z</lastmod>
   </url>
 </urlset>
