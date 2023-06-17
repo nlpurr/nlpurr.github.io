@@ -1,18 +1,18 @@
 [
   {
-    "listing": "/posts/index.html",
-    "items": [
-      "/posts/example_collapsible.html"
-    ]
+    "listing": "/lmfttfy/index.html",
+    "items": []
   },
   {
     "listing": "/index.html",
-    "items": [
-      "/posts/example_collapsible.html"
-    ]
+    "items": []
   },
   {
     "listing": "/stream/index.html",
+    "items": []
+  },
+  {
+    "listing": "/posts/index.html",
     "items": []
   }
 ]
