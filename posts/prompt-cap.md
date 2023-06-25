@@ -1,11 +1,5 @@
 ---
-Featured: false
-Publish Where?:
-- NLPurr
-- Mimansa Jaiswal
 Related Blogposts: []
-title: Prompt Cap - Making Sure Your Model Benchmarking is Cap or Not-Cap
-Type: Post
 URL: null
 categories:
 - Text
@@ -22,8 +16,9 @@ notion_id: 1c2e8f3f-4dbe-4426-a362-aa4bb363134c
 notion_url: https://www.notion.so/Prompt-Cap-Making-Sure-Your-Model-Benchmarking-is-Cap-or-Not-Cap-1c2e8f3f4dbe4426a362aa4bb363134c
 reference-location: margin
 threeword: 'Evaluate The Prompt!'
+title: Prompt Cap | Making Sure Your Model Benchmarking is Cap or Not-Cap
 ---
-# Introducing Prompt-CAP
+# Introduction
 
 \"LLMs\", or Language Models, need to be trained and tested on different datasets and prompts to improve functionality and accuracy. In addition, versioning is important when assessing LLMs. Iterating on the prompts and datasets can produce better results. However, keeping different versions of both prompts and datasets can help identify which changes in the model\'s performance led to improvements. All these practices should be followed to effectively evaluate and improve LLMs.
 
@@ -270,38 +265,40 @@ This prompt-based experimental design schema is a work in progress and welcomes 
 
 ### Markup/Interfacing Languages {#markup-interfacing-languages}
 
-PromptSource: An Integrated Development Environment and Repository for Natural Language Prompts
+[PromptSource: An Integrated Development Environment and Repository for Natural Language Prompts](https://arxiv.org/abs/2202.01279)
 
-OpenPrompt: An Open-source Framework for Prompt-learning
+[OpenPrompt: An Open-source Framework for Prompt-learning](https://arxiv.org/abs/2111.01998)
 
-PromptChainer: Chaining Large Language Model Prompts through Visual Programming
+[PromptChainer: Chaining Large Language Model Prompts through Visual Programming](https://arxiv.org/abs/2203.06566)
 
-Prompting Is Programming: A Query Language For Large Language Models
+[Prompting Is Programming: A Query Language For Large Language Models](https://arxiv.org/abs/2212.06094)
 
-MarkupLM: Pre-training of Text and Markup Language for Visually Rich Document Understanding
+[MarkupLM: Pre-training of Text and Markup Language for Visually Rich Document Understanding](https://arxiv.org/abs/2110.08518)
 
-"What It Wants Me To Say": Bridging the Abstraction Gap Between End-User Programmers and Code-Generating Large Language Models
+["What It Wants Me To Say": Bridging the Abstraction Gap Between End-User Programmers and Code-Generating Large Language Models](https://arxiv.org/abs/2304.06597)
 
 ### Prompt Building
 
-Language Model Cascades
+[Language Model Cascades](https://arxiv.org/abs/2207.10342)
 
-Automatic Chain of Thought Prompting in Large Language Models
+[Automatic Chain of Thought Prompting in Large Language Models](https://arxiv.org/abs/2210.03493)
 
-Large Language Models Are Human-Level Prompt Engineers
+[Large Language Models Are Human-Level Prompt Engineers](https://arxiv.org/abs/2211.01910)
 
-AUTOPROMPT: Eliciting Knowledge from Language Models with Automatically Generated Prompts
+[AUTOPROMPT: Eliciting Knowledge from Language Models with Automatically Generated Prompts](https://arxiv.org/abs/2010.15980)
+
+[Demonstrate-Search-Predict: Composing retrieval and language models for knowledge-intensive NLP](https://arxiv.org/abs/2212.14024)
 
 ### Dataset Cartography
 
-Learning from Others' Mistakes: Avoiding Dataset Biases without Modeling Them
+[Learning from Others' Mistakes: Avoiding Dataset Biases without Modeling Them](https://arxiv.org/abs/2012.01300)
 
-Dataset Cartography: Mapping and Diagnosing Datasets with Training Dynamics
+[Dataset Cartography: Mapping and Diagnosing Datasets with Training Dynamics](https://aclanthology.org/2020.emnlp-main.746/)
 
-Diversity, Density, and Homogeneity: Quantitative Characteristic Metrics for Text Collections
+[Diversity, Density, and Homogeneity: Quantitative Characteristic Metrics for Text Collections](https://arxiv.org/abs/2003.08529)
 
 ### Experimental Design  {#experimental-design-}
 
 ### LLM Evaluation
 
-Selection-Inference: Exploiting Language Models for Interpretable Logical Reasoning
+[Selection-Inference: Exploiting Language Models for Interpretable Logical Reasoning](https://arxiv.org/abs/2205.09712)
