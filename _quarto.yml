@@ -26,8 +26,8 @@ website:
         href: posts/index.qmd
       - icon: cursor-text
         href: stream/index.qmd
-      - icon: type-strikethrough
-        href: lmfttfy/index.qmd
+      # - icon: type-strikethrough
+      #   href: lmfttfy/index.qmd
     right:
       - icon: twitter
         text: Find me on Twitter
