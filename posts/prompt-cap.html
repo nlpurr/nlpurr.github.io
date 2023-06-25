@@ -1,43 +1,210 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
-      xmlns:media="http://search.yahoo.com/mrss/" 
-      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
-      xmlns:dc="http://purl.org/dc/elements/1.1/" 
-      version="2.0">
-<channel>
-<title>NLPurr</title>
-<link>https://nlpurr.github.io/posts/index.html</link>
-<atom:link href="https://nlpurr.github.io/posts/index.xml" rel="self" type="application/rss+xml"/>
-<description>Long Form Posts</description>
-<generator>quarto-1.3.427</generator>
-<lastBuildDate>Wed, 26 Apr 2023 00:00:00 GMT</lastBuildDate>
-<item>
-  <title></title>
-  <link>https://nlpurr.github.io/posts/prompt-cap.html</link>
-  <description><![CDATA[ 
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.427">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="NLPurr">
+<meta name="dcterms.date" content="2023-04-26">
+
+<title>?meta:title</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean",
+  "openSidebar": false,
+  "showHighlights": "whenSidebarOpen"
+}
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+    
+</script>
+
+
+<meta property="og:title" content="?meta:title">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-4ea3c09cf3d.png">
+<meta property="og:site-name" content="NLPurr">
+<meta property="og:image:height" content="550">
+<meta property="og:image:width" content="1200">
+<meta name="twitter:title" content="?meta:title">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-4ea3c09cf3d.png">
+<meta name="twitter:creator" content="@NLPurr">
+<meta name="twitter:site" content="@NLPurr">
+<meta name="twitter:image-height" content="550">
+<meta name="twitter:image-width" content="1200">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">NLPurr</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../posts/index.html" rel="" target=""><i class="bi bi-text-indent-left" role="img">
+</i> 
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../stream/index.html" rel="" target=""><i class="bi bi-cursor-text" role="img">
+</i> 
+ <span class="menu-text">Random Thoughts</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://twitter.com/NLPurr" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text">Find me on Twitter</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../posts/index.xml" rel="" target=""><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text">Feed</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introducing-prompt-cap" id="toc-introducing-prompt-cap" class="nav-link active" data-scroll-target="#introducing-prompt-cap">Introducing Prompt-CAP</a></li>
+  <li><a href="#what-does-usual-model-training-look-like-" id="toc-what-does-usual-model-training-look-like-" class="nav-link" data-scroll-target="#what-does-usual-model-training-look-like-">What does usual model training look like?</a></li>
+  <li><a href="#problems-with-closed-llms" id="toc-problems-with-closed-llms" class="nav-link" data-scroll-target="#problems-with-closed-llms">Problems with Closed LLMs</a>
+  <ul class="collapse">
+  <li><a href="#prompting-closed-llms" id="toc-prompting-closed-llms" class="nav-link" data-scroll-target="#prompting-closed-llms">Prompting Closed LLMs</a></li>
+  <li><a href="#prompt-based-experimental-design-schemas" id="toc-prompt-based-experimental-design-schemas" class="nav-link" data-scroll-target="#prompt-based-experimental-design-schemas">Prompt Based Experimental Design Schemas</a></li>
+  </ul></li>
+  <li><a href="#prompt-markup-schema" id="toc-prompt-markup-schema" class="nav-link" data-scroll-target="#prompt-markup-schema">Prompt Markup Schema</a>
+  <ul class="collapse">
+  <li><a href="#prompt-definition-markup" id="toc-prompt-definition-markup" class="nav-link" data-scroll-target="#prompt-definition-markup">Prompt Definition Markup</a></li>
+  <li><a href="#sample-markup" id="toc-sample-markup" class="nav-link" data-scroll-target="#sample-markup">Sample Markup</a></li>
+  <li><a href="#output-schema" id="toc-output-schema" class="nav-link" data-scroll-target="#output-schema">Output Schema</a></li>
+  <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata">Metadata</a>
+  <ul class="collapse">
+  <li><a href="#connectors" id="toc-connectors" class="nav-link" data-scroll-target="#connectors">Connectors</a></li>
+  <li><a href="#iteration" id="toc-iteration" class="nav-link" data-scroll-target="#iteration">Iteration</a></li>
+  <li><a href="#intuition" id="toc-intuition" class="nav-link" data-scroll-target="#intuition">Intuition</a></li>
+  <li><a href="#variation" id="toc-variation" class="nav-link" data-scroll-target="#variation">Variation</a></li>
+  <li><a href="#experimental-design" id="toc-experimental-design" class="nav-link" data-scroll-target="#experimental-design">Experimental Design</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#footnote" id="toc-footnote" class="nav-link" data-scroll-target="#footnote">Footnote</a>
+  <ul class="collapse">
+  <li><a href="#recommended-papers-in-the-area-" id="toc-recommended-papers-in-the-area-" class="nav-link" data-scroll-target="#recommended-papers-in-the-area-">Recommended papers in the area:</a>
+  <ul class="collapse">
+  <li><a href="#markup-interfacing-languages" id="toc-markup-interfacing-languages" class="nav-link" data-scroll-target="#markup-interfacing-languages">Markup/Interfacing Languages</a></li>
+  <li><a href="#prompt-building" id="toc-prompt-building" class="nav-link" data-scroll-target="#prompt-building">Prompt Building</a></li>
+  <li><a href="#dataset-cartography" id="toc-dataset-cartography" class="nav-link" data-scroll-target="#dataset-cartography">Dataset Cartography</a></li>
+  <li><a href="#experimental-design-" id="toc-experimental-design-" class="nav-link" data-scroll-target="#experimental-design-">Experimental Design</a></li>
+  <li><a href="#llm-evaluation" id="toc-llm-evaluation" class="nav-link" data-scroll-target="#llm-evaluation">LLM Evaluation</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
 
 
 
 <section id="introducing-prompt-cap" class="level1">
 <h1>Introducing Prompt-CAP</h1>
 <p>"LLMs", or Language Models, need to be trained and tested on different datasets and prompts to improve functionality and accuracy. In addition, versioning is important when assessing LLMs. Iterating on the prompts and datasets can produce better results. However, keeping different versions of both prompts and datasets can help identify which changes in the model's performance led to improvements. All these practices should be followed to effectively evaluate and improve LLMs.</p>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-4ea3c09cf3d.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-4ea3c09cf3d.png" class="img-fluid"></p>
 </section>
 <section id="what-does-usual-model-training-look-like-" class="level1">
 <h1>What does usual model training look like?</h1>
 <p>In machine learning, it's common to divide a dataset into three parts: the train set, validation set, and test set. The train set is used to train a machine learning model, the validation set is used to tune the hyperparameters of the model, and the test set is used to measure the final performance of the model.</p>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-63cfd74ac5b.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-63cfd74ac5b.png" class="img-fluid"></p>
 <p>There are some pre-established norms when it comes to creating these subsets. For instance, the training set should be diverse and heterogeneous, while the validation and test sets should not have any leakage or spurious correlations from the train set. By following these best practices, data scientists can create effective and accurate machine learning models that can be used for a wide range of applications.</p>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-6cbf1ea978d.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-6cbf1ea978d.png" class="img-fluid"></p>
 </section>
 <section id="problems-with-closed-llms" class="level1">
 <h1>Problems with Closed LLMs</h1>
 <p>The use of closed language models (LLMs) poses certain challenges when it comes to testing their performance. If we do not know what went into the training dataset of a closed LLM, it is very likely that the test dataset we use or generate will be contaminated. This can result in inaccurate performance metrics and difficulty in verifying the correctness of the model's responses.</p>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-69887e3e0dd.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-69887e3e0dd.png" class="img-fluid"></p>
 <p>Prompt-based benchmarking can exacerbate these challenges further by introducing another layer of complexity. If we are not directly testing for an "input sample" to "output" correspondence, the way we write the prompt and what we ask for as an output will significantly change how we benchmark the ability of any model. This can make evaluating the performance of a closed LLM more difficult and error-prone, and increase the risk of producing biased results.</p>
 <section id="prompting-closed-llms" class="level2">
 <h2 class="anchored" data-anchor-id="prompting-closed-llms">Prompting Closed LLMs</h2>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-f258297f659.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-f258297f659.png" class="img-fluid"></p>
 <p>When we are limited to observations, it becomes essential to employ experimental design in order to assess the capabilities of a model.</p>
 <p>In order to do effectively, there are three key components we require:</p>
 <ul>
@@ -52,7 +219,7 @@
 <p>For details, look at this twitter <a href="https://twitter.com/mcxfrank/status/1643296168276033538">thread</a>.</p>
 <p>::: {.twitter .column-margin user=mcxfrank status_id=1643296168276033538 }<br>
 :::</p>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-8f14c7d2906.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-8f14c7d2906.png" class="img-fluid"></p>
 <p>Let's talk about Prompt Based Experimental Design Schemas. These schemas can be thought of as templates, but with a key distinction. They not only focus on varying the input sample, but also on modifying the prompt specifications. By doing so, they allow us to closely monitor and analyze the changes that occur from one prompt to another. This approach provides a valuable way to study and understand the impact of different prompts on the overall outcome of an experiment.</p>
 </section>
 </section>
@@ -61,37 +228,37 @@
 <p>Prompt Based Experimental Design Schemas can be categorized into four main categories: prompts, samples, outputs, and metadata.</p>
 <p>While the evaluation or metric design for outputs is a complex problem on its own, whether we use prompt based systems or not, in this discussion we will focus on exploring schemas for the remaining three categories: prompts, samples, and metadata.</p>
 <p>These aspects play a crucial role in shaping the experimental design and understanding the impact of different elements within the experiment.</p>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-1e5a7351c70.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-1e5a7351c70.png" class="img-fluid"></p>
 <p>In this case, we will refer to Sparks AGI paper and utilize the basic Theory of Mind example as our reference point.</p>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-583dc6d0606.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-583dc6d0606.png" class="img-fluid"></p>
 <section id="prompt-definition-markup" class="level2">
 <h2 class="anchored" data-anchor-id="prompt-definition-markup">Prompt Definition Markup</h2>
 <p>Let's delve into the concept of Prompt Definition Markup. Within this framework, we identify three types of steering in a prompt: start, process, and output.</p>
 <p>Each type serves a distinct purpose. Additionally, an output steer consists of two components: instructions (including constraints and format) and options.</p>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-d9c584bb200.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-d9c584bb200.png" class="img-fluid"></p>
 <p>To illustrate, let's consider the "Sparks of AGI" paper, which utilizes only a start steer, indicating the initial direction or guidance provided in the prompt.</p>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-7c7578cdbf5.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-7c7578cdbf5.png" class="img-fluid"></p>
 <p>This approach allows for a clear and structured definition of prompts, enabling effective experimentation and analysis.</p>
 <p>To enhance the prompt, we can introduce a process steer in addition to the start steer, encouraging a step-by-step approach. Furthermore, we can incorporate an output instruction steer, specifying that the response should only include the folder path and no additional information.</p>
 <p>These modifications provide additional guidance and constraints to the prompt, allowing for a more structured and controlled experimental design.</p>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-1f7053e0950.png" class="img-fluid"></p>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-9091c7d24aa.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-1f7053e0950.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-9091c7d24aa.png" class="img-fluid"></p>
 </section>
 <section id="sample-markup" class="level2">
 <h2 class="anchored" data-anchor-id="sample-markup">Sample Markup</h2>
 <p>Let's now turn our attention to Sample Markup. A sample consists of two key components: examples and input. However, if our objective is zero-shot prompting, we may not require specific examples.</p>
 <p>In cases where examples are included, they can be categorized as either positive (A1) or negative (A2) examples, providing different instances for the model to learn from. On the other hand, the input component comprises three parts: the sample itself (B1), a question (B2), and a concept (B3). These elements collectively shape the input provided to the model, allowing for a more targeted and contextualized prompt.</p>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-9300062118c.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-9300062118c.png" class="img-fluid"></p>
 <p>Let's consider an example to illustrate the concept of Sample Markup. In the context of the Theory of Mind False Belief Test, there are no specific examples provided. Instead, the prompt consists of a sample, a question, and an implicit concept. We can annotate this prompt accordingly, as depicted in the accompanying picture.</p>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-a1b36107f79.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-a1b36107f79.png" class="img-fluid"></p>
 </section>
 <section id="output-schema" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="output-schema">Output Schema</h2>
 <p>The output schema is a complex process that intersects significantly with large language model (LLM) evaluation techniques. If you're interested in delving deeper into this topic, I recommend checking out my other post. It provides further insights and information about the intricacies involved in designing and evaluating output schemas for LLMs.</p>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-2b79a1398a3.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-2b79a1398a3.png" class="img-fluid"></p>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-4c3e4d1a18a.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-4c3e4d1a18a.png" class="img-fluid"></p>
 </div></div></section>
 <section id="metadata" class="level2">
 <h2 class="anchored" data-anchor-id="metadata">Metadata</h2>
@@ -101,7 +268,7 @@ B. Iteration<br>
 C. Variation<br>
 D. Intuition<br>
 E. Experimental Design</p>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-c6fddf51f9e.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-c6fddf51f9e.png" class="img-fluid"></p>
 <section id="connectors" class="level3">
 <h3 class="anchored" data-anchor-id="connectors">Connectors</h3>
 <p>Let's delve into the concept of Connectors within the prompt-based experimental design schema. Connectors serve as internal elements within a single prompt and play a crucial role in shaping the prompt's context and implications. They can serve different purposes:</p>
@@ -109,7 +276,7 @@ E. Experimental Design</p>
 <p>A2. Negation: On the other hand, connectors can also negate certain information presented in the prompt. By negating specific details, the prompt can introduce contrasting or alternative perspectives.</p>
 <p>A3. Exception: Connectors may also be used to highlight exceptions to the information being tested or present in the prompt. These exceptions provide additional nuances and complexities to the prompt, allowing for a more comprehensive exploration of the given scenario.</p>
 <p>For instance, consider the following example: "He says nothing about this to Alice, and Dropbox also does not notify Alice." In this case, the connector reinforces the belief or statement being made, emphasizing that both the person mentioned and Dropbox do not inform Alice about a particular matter. This connector strengthens the prompt's intended message and adds clarity to the scenario being presented.</p>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-4ad1f2317ec.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-4ad1f2317ec.png" class="img-fluid"></p>
 </section>
 <section id="iteration" class="level3">
 <h3 class="anchored" data-anchor-id="iteration">Iteration</h3>
@@ -131,7 +298,7 @@ E. Experimental Design</p>
 <p>C1. Implicit (Theory of Mind): The implicit intuition of the prompt revolves around the exploration of the Theory of Mind concept, which involves understanding and analyzing how individuals perceive and interpret the thoughts, beliefs, and intentions of others.</p>
 <p>C2. Explicit (Modernization -&gt; Unseen Photos Because of Online Service): The explicit intuition of the prompt focuses on the concept of modernization and its impact on individuals' access to unseen photos due to online services. It highlights the specific aspect of modernization and its influence on personal experiences.</p>
 <p>C3. Test (False Belief Test): The test intuition of the prompt centers around conducting a False Belief Test, which aims to assess individuals' understanding of false beliefs and their ability to attribute different perspectives to others.</p>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-b86b1e8fb1e.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-b86b1e8fb1e.png" class="img-fluid"></p>
 </section>
 <section id="variation" class="level3">
 <h3 class="anchored" data-anchor-id="variation">Variation</h3>
@@ -151,7 +318,7 @@ with D2. Similar Concept (Unseen Object 'Cause Sleeping)</p>
 Both GPT4 and GPT3.5 fail on this simple task<br>
 <br>
 Somehow sleep is not encoded as no knowledge transfer?</p>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-90a05f4040a.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-90a05f4040a.png" class="img-fluid"></p>
 </section>
 <section id="experimental-design" class="level3">
 <h3 class="anchored" data-anchor-id="experimental-design">Experimental Design</h3>
@@ -166,7 +333,7 @@ Somehow sleep is not encoded as no knowledge transfer?</p>
 <p>By codifying the directionality of these variables and considering the experimental design components such as control, previous prompt, date, and model, we can establish a structured and systematic approach to prompt-based experimentation. This framework allows for clear comparisons, iterative improvements, and effective tracking of the experiment's progress and outcomes.</p>
 <p><strong>Previous Example</strong></p>
 <p>Some of these prompts have the word "expect" which is known to be ambiguous</p>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-a36a84c7076.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-a36a84c7076.png" class="img-fluid"></p>
 <p>Let's consider an example to illustrate the importance of annotating the directionality within the experimental design. In this case, we initially believe that the model is correct and passes the false-belief test. However, upon further examination, we identify a potential issue of leakage in the prompt.</p>
 <p>The use of words such as "think" or "believe" in the prompt directly correlates with the concept of a "belief-test." This correlation can unintentionally guide the model towards the correct answer, potentially compromising the validity of the test. To address this concern, we can annotate the directionality by replacing the problematic wording with alternatives. For instance, replacing "think" with "look for" in the prompt may help mitigate the issue of leakage.</p>
 <p>By annotating the directionality and actively addressing potential biases or correlations within the prompt, we can ensure a more accurate evaluation of the model's capabilities. This approach enhances the integrity of the experiment and allows for clearer insights into the model's performance and understanding of the desired concepts.</p>
@@ -174,7 +341,7 @@ Somehow sleep is not encoded as no knowledge transfer?</p>
 <p>Using the word think or believe makes it work for GPT4, not for GPT3.5.<br>
 <br>
 Suggestions to frame it without using the explicit terms "think" "believe" which correlate to the expectation that outcome is independent of the action?</p>
-<p><img src="https://nlpurr.github.io/posts/images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-6193491277a.png" class="img-fluid"></p>
+<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-6193491277a.png" class="img-fluid"></p>
 </section>
 </section>
 </section>
@@ -217,14 +384,244 @@ Suggestions to frame it without using the explicit terms "think" "believe" which
 </section>
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>Text</category>
-  <category>Evaluation</category>
-  <category>Metric Design</category>
-  <category>Schema</category>
-  <category>Foundation Models</category>
-  <guid>https://nlpurr.github.io/posts/prompt-cap.html</guid>
-  <pubDate>Wed, 26 Apr 2023 00:00:00 GMT</pubDate>
-</item>
-</channel>
-</rss>
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="nlpurr/nlpurr.github.io" data-repo-id="R_kgDOJo8TQA" data-category="Announcements" data-category-id="DIC_kwDOJo8TQM4CW3Zf" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
