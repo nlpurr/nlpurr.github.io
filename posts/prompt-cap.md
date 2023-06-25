@@ -4,7 +4,7 @@ Publish Where?:
 - NLPurr
 - Mimansa Jaiswal
 Related Blogposts: []
-Title: Prompt Cap - Making Sure Your Model Benchmarking is Cap or Not-Cap
+title: Prompt Cap - Making Sure Your Model Benchmarking is Cap or Not-Cap
 Type: Post
 URL: null
 categories:
@@ -14,20 +14,14 @@ categories:
 - Schema
 - Foundation Models
 citation-location: margin
-date: '2023-04-26
-
-  '
+date: '2023-04-26'
 description: ''
-display-date: 'Apr 2023
-
-  '
+display-date: 'Apr 2023'
 format: html
 notion_id: 1c2e8f3f-4dbe-4426-a362-aa4bb363134c
 notion_url: https://www.notion.so/Prompt-Cap-Making-Sure-Your-Model-Benchmarking-is-Cap-or-Not-Cap-1c2e8f3f4dbe4426a362aa4bb363134c
 reference-location: margin
-threeword: 'Evaluate The Prompt!
-
-  '
+threeword: 'Evaluate The Prompt!'
 ---
 # Introducing Prompt-CAP
 
