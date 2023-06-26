@@ -26,6 +26,12 @@ Every popular paper later, we keep coming back to the same questions: how do we 
 
 > *Note*: While this document will be updated with references in time; I am not claiming all of the ideas here are my own. They are of course inspired and based off many other research outcomes I trust; and I will slowly come around to include them here.
 
+:::{.column-margin}
+
+You can always make pull requests to add sources and examples [here](https://github.com/nlpurr/nlpurr.github.io/blob/master/posts/case-of-llm-evals.qmd).
+
+:::
+
 And unfortunately, the answer is not as simple. I might even go as far to say; it --- in most likelihood is not solid. We might want it to be, but evaluation and benchmarking had already been complicated, even for classification models. We, honestly never solved it for small generative models and long form generations; and then suddenly we were faced with an influx of extremely large, multi-purpose language models; aka; foundation models.
 
 And now everyone is left with these carefully curated academic datasets that they report numbers on; that in all likelihood leaked into the training set when the whole accessible internet was scraped for it; and; buggy techniques; because we as ML practitioners were never taught basic statistics.
@@ -62,13 +68,17 @@ Any neural network output is usually slightly dependent on the random seed. Any 
 
 While many people are content with reporting accuracy results, it has been well known that the impact of false positives vs false negatives isn't the same for every task. If you are using an ML model for IR, and see a false-positive or miss a false-negative; it is probably alright. If you are using the same model for passive health monitoring, a false negative is heavily
 
+### Unexplained Decisions
+
+There have been many decisions of removing or keeping data, that have existed across the existence of machine learning. In audio, many numbers are reported by discarding data samples that are under a certain length because they might not constitute as utterances. Knowing and explaining those thresholds is not only important for paper review or discussion but also for replication.
+
 # Issues with Evaluation wrt LLMs
 
 Now that we have that information, let's talk about the components of LLM evaluation. You can breakdown any LLM evaluation into 6 components:
 
 ## Evaluation Datasets
 
-Evaluation Datasets: These are the test samples that the model is being evaluated for. There are multiple ways to construct these evaluation datasets and to use them; each of them coming with its own set of problems.
+Evaluation Datasets or Evaluation Sets or Eval Sets: These are the test samples that the model is being evaluated for. There are multiple ways to construct these evaluation datasets and to use them; each of them coming with its own set of problems.
 
 Using the similar set of datasets for evaluation come with a another set of problems:
 
@@ -84,9 +94,33 @@ Using the similar set of datasets for evaluation come with a another set of prob
 
 ### What can these evaluation datasets look like? {#what-can-these-evaluation-datasets-look-like-}
 
--   Pre-curated datasets from various standardized tests --- These are mostly designed to be differentiating for humans and not for models. Additionally, they can have memorization based questions, that can incorrectly be inferred as understanding in context of evaluating LLMs.
--   Human curated tests for the sole purpose of evaluating a task --- These test sets are usually designed as a measure against data leakage. After all, humans can probably create a distinct enough pattern to evaluate against. While that is a pro, these datasets come with flaws of their own; for example they are really small and, do not usually have
--   Ad-hoc testing samples by humans --- These are performed as conversation based evaluation of these models. While they are most likely to be accurate; they are are biased by the mere idea that the human usually needs to know the solution to the problem to be able the question for evaluation purposes. This often ends up in; what I call as; `human imagination collapse` or the likelihood that an individual human would often be set on a trajectory to test for and not meaningfully diversify; at least in a single setting.
+> Suggest examples in pull requests and I will merge them here
+
+Pre-curated evaluation sets from various standardized tests --- These are mostly designed to be differentiating for humans and not for models. Additionally, they can have memorization based questions, that can incorrectly be inferred as understanding in context of evaluating LLMs.
+
+::: {.callout-tip title="Pre-curated eval sets" collapse=true}
+
+:::
+
+Web scraped evaluation sets for ML model testing --- These datasets are created by scraping the internet for particular tags and using the corresponding tag as the label for the sample itself or are annotated by various human annotators. The samples from these datasets are most likely to be present in the training set of these foundation models itself and hence, it is often not a good idea to just rely on these for evaluation.
+
+::: {.callout-tip title="Scraped eval sets" collapse=true}
+
+:::
+
+Human created and curated evaluation sets for the sole purpose of evaluating a task --- These test sets are usually designed as a measure against data leakage. After all, humans can probably create a distinct enough pattern to evaluate against. While that is a pro, these datasets come with flaws of their own; for example they are really small and, are harder to create and update.
+
+::: {.callout-tip title="Human curated eval sets" collapse=true}
+
+-   [HumanEval](https://arxiv.org/abs/2107.03374)
+
+:::
+
+Ad-hoc testing samples by humans --- These are performed as conversation based evaluation of these models. While they are most likely to be accurate; they are are biased by the mere idea that the human usually needs to know the solution to the problem to be able the question for evaluation purposes. This often ends up in; what I call as; `human imagination collapse` or the likelihood that an individual human would often be set on a trajectory to test for and not meaningfully diversify; at least in a single setting.
+
+::: {.callout-tip title="Ad-hoc testing" collapse=true}
+
+:::
 
 ::: {.column-margin}
 
@@ -103,14 +137,59 @@ Now let us come to the second problem --- output from generative models.
     Another example: asking a model for a direct output and extracting the answer can lead to a different answer than in the multiple-choice scenario.
 -   Regression based model outcome does not necessarily scale and hence can change the standard deviation and mean of the regressed output. For example, if you ask a model to provide a graded rating between 0-10; you cannot with certainty scale that grading to 0-1, especially if you care about significance testing.
 
+:::{.callout-tip collapse=\"true\" title="Do you want to know why this is a problem with examples?"}
+
+Let's take the example in [Textbooks are all you need](https://arxiv.org/pdf/2306.11644.pdf) paper again and ask it to grade 2 responses on 3 scales.
+
+Why? Because the description says that the GPT4 model was asked to grade between 0-10, but the numbers are reported scaled between 0-1.
+
+![The paper saying that the model is asked for grades between 0 to 10, and that is then scaled to report between 0-1.](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-38d35b72660.png)
+
+![](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-36a1e237255.png)
+
+Let's start with the completely correct response.
+
+![The GPT4 model says the response is 9/10 when asked for a grade between 0-10.](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-0d50e7c6848.png)
+
+![The GPT4 model says the response is .95/10 when asked for a grade between 0-1.](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-44ef7ec4988.png)
+
+![The GPT4 model says the response is 4.5/5 when asked for a grade between 0-5; which is great, right? Because at least the scaling is consistent.](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-5b3c7e7a4b4.png)
+
+But, let's consider some other solutions, those that are incorrect in some way or another. Let's do this by changing squaring to 2.2, and sorting the second list in reverse.
+
+![The GPT4 model says the response is 8/10 when asked for a grade between 0-10.](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-7d63e513030.png)
+
+![The GPT4 model says the response is 4.5/5 when asked for a grade between 0-5. The scaling is constant here too!](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-88c3f3d29ff.png)
+
+![The GPT4 model says that the response is 0.9/1. And now all the scaling is messed up.](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-2a516565700.png)
+
+:::
+
 ## Sample/Output Transformation {#sample-output-transformation}
 
 There are many transformations applied to model outputs or their inputs. These can roughly be divided into 4 categories:
 
--   Looped Transformations: Loop based transformations usually follow the philosophy of ---\> what if we additionally add the model output + some form of evaluation of the current answer back into the model; such that it eventually reaches the perfect outcome. Some examples of these would be Self-Critique models.
--   Chained Transformations: Chain based transformations usually do not have a measured evaluation in between a set of model input → output → model input and so on. These chains are usually pre-defined and have a restricted number of paths to follow.
--   Atomic Outputs: This method involves breaking down the output of a model; either manually, through a rule based system or through AI itself; into atomic components that can be evaluated individually to combine to form a larger weighted grade.
--   Constrained Output: This method involves either using log probability (which isn't accessible in case of GPT3.5/GPT4 APIs) or other internal constraints to ensure that the model responds with tokens belonging to a certain pre-decided or allowed distribution.
+### Looped Transformations
+
+Loop based transformations usually follow the philosophy of ---\> what if we additionally add the model output + some form of evaluation of the current answer (either from the same model, another model or a human) back into the model; such that it eventually reaches the perfect outcome. Some examples of these would be Self-Critique models.
+
+::: {.callout-tip title="Example Papers" collapse=true}
+
+![[Reflexion: Language Agents with Verbal Reinforcement Learning](https://arxiv.org/pdf/2303.11366.pdf) develops a modular formulation for Reflexion, utilizing three distinct models: an Actor generates text and actions; an Evaluator model scores the outputs produced by Actor; and a Self-Reflection model, generates verbal reinforcement cues to assist the Actor in self-improvement.](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-ad9844c143d.png)
+
+:::
+
+### Chained Transformations
+
+Chain based transformations usually do not have a measured evaluation in between a set of model input → output → model input and so on. These chains are usually pre-defined and have a restricted number of paths to follow.
+
+### Atomic Outputs
+
+This method involves breaking down the output of a model; either manually, through a rule based system or through AI itself; into atomic components that can be evaluated individually to combine to form a larger weighted grade.
+
+### Constrained Output
+
+This method involves either using log probability (which isn't accessible in case of GPT3.5/GPT4 APIs) or other internal constraints to ensure that the model responds with tokens belonging to a certain pre-decided or allowed distribution.
 
 ## Ground Truth
 
@@ -128,7 +207,13 @@ Remember the 3 possible pitfalls with ground truth:
 
 In my perspective, the evaluation medium can be categorized into three distinct groups.
 
-### Direct Evaluation Metrics: {#direct-evaluation-metrics-}
+### Direct Evaluation Metrics
+
+::: {.callout-tip title="Example Papers" collapse=true}
+
+![[Textbooks are all you need ](https://arxiv.org/pdf/2306.11644.pdf)evaluation with HumanEval and MBPP](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-d9a5f74b47b.png)
+
+:::
 
 The first category I call \"direct evaluation metrics.\" These are the traditional metrics that have been widely used in the field for a long time. Metrics like accuracy and F1 score fall into this category. Typically, this approach involves obtaining a single output from the model and comparing it to a reference, either through constraints or by extracting the desired information. The evaluation can be done through ad-hoc conversation-based evaluation, curated specialized test sets, or direct annotation.
 
@@ -140,11 +225,26 @@ For instance, one direct evaluation metric is comparing the model\'s accuracy di
 
 :::
 
-### Auxiliary models-based evaluation
+### Indirect Model-Based Evaluation
+
+::: {.callout-tip title="Example Papers" collapse=true}
+
+![Rubric based from the same model.\
+[TinyStories: How Small Can Language Models Be and Still Speak Coherent English?](https://arxiv.org/pdf/2305.07759.pdf)](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-384f6f3ee9b.png)
+
+:::
 
 Moving on to the second category, we have \"indirect heuristics.\" Here, we utilize smaller models, whether they are fine-tuned or raw decompositions, to evaluate the answers generated by the main model. The idea is to leverage these smaller models, which excel at specific tasks that large language models are generally good at, such as adjective identification or polarity identification. The outputs of these smaller models act as weak scores that are combined to provide a final label or evaluation for the generated output. This indirect evaluation approach allows for a more nuanced assessment of the model\'s performance, particularly in areas like the likability of prose. Although these models introduce some variability, it\'s important to note that they are often trained for regression tasks and fine-tuned for specific purposes.
 
 ### Model-Driven Evaluation
+
+::: {.callout-tip title="Papers" collapse=true}
+
+![[Bring Your Own Data! Self-Supervised Evaluation forLarge Language Models](https://arxiv.org/pdf/2306.13651.pdf) evaluation based on invariance of model output based on fuzzed input samples](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-594e8bc80cb.png)
+
+![[Textbooks are all you need ](https://arxiv.org/pdf/2306.11644.pdf)evaluation with GPT4](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-62202ec9cb6.png)
+
+:::
 
 The third category I refer to as \"model-driven evaluation.\" In these cases, the model itself provides the final score or evaluation. However, this introduces an additional layer of variability. Even if the model has access to ground truth information, the evaluation metric itself may introduce randomness or variability in the scoring process. For example, a common evaluation question could be: \"Is this generated output (O) similar to the ground truth answer (G)?\" The answer to this question not only depends on the randomness associated with the model\'s output but also on the inherent variability of the evaluation metric.
 
@@ -221,6 +321,7 @@ Why not?
     ![The model scores the completely incorrect function at 4/10. It ignores an error. In the previous pictures, it creates an error or a suggestion which was not asked for and will render the code incorrect.](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-37b899bb621.png)
 -   Anything weird to the model, that is not in the general expected distribution will be marked low. For example, here is a correct code that is marked lower just because it is unexpected by GPT4.
     ![Model invents a requirement that does not exist, writes incorrect code and grades the correct code 8.5/10.](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-de21fe993b3.png)
+
 :::
 
 ## Performance Report
@@ -253,7 +354,7 @@ Mosaic 30B (released on 2023-06-22) explores the idea of combining benchmarks in
 
 Lastly, we must address the concept of prompt-fine tuning. Numerous research papers present results on the test set by identifying the best prompt for a given task. While this approach may seem reasonable in theory, it fails to provide a reliable measure of the model\'s performance when it comes to solving real-world problems encountered by average users. If the intention is to use the prompt as an auxiliary component in a pipeline, then finding the optimal prompt for the task and model is acceptable. However, for direct user-facing end-to-end models, it is crucial to acknowledge that the best prompt for obtaining the correct answer may not be realistic or feasible for all users, especially in the case of general-purpose models.
 
-::: {.twitter user=ArmenAgha status_id=1669098472493162497 }
+::: {.twitter user=ArmenAgha status_id=1669098472493162497}\
 :::
 
 > **Side note:** There is a proposal of encrypting and encoding prompts and evaluation. And I completely support that proposal. While in an ideal world we might want opt-in for data, this isn't the case at the moment, and we can safeguard ourselves from train-test leakage concerns.
@@ -263,3 +364,5 @@ Lastly, we must address the concept of prompt-fine tuning. Numerous research pap
 # tl;dr {#tl-dr}
 
 In the realm of evaluating language models (LLMs), we find ourselves grappling with intricate questions about the reliability of our assessments. The truth is, evaluation and benchmarking have always been challenging, and the advent of large, multi-purpose models has only compounded the complexities. Issues such as data leakage, coverage limitations, spurious correlations, and partitioning quandaries plague our evaluation practices. To make matters worse, precision vs. recall tradeoffs and the lack of ground truth further muddy the waters. This post explores the common problems with evaluation in machine learning and delves into the specific challenges posed by LLMs. We categorize evaluation mediums into direct metrics, auxiliary models-based evaluation, and model-driven evaluation, shedding light on the nuances of each approach. With a cautious eye, we navigate the intricacies of reporting performance numbers and emphasize the importance of granularity. Prompt-fine tuning is also scrutinized, reminding us to consider the realism of user interactions. As we venture deeper into the evaluation landscape, it becomes clear that a comprehensive understanding of these complexities is essential for meaningful assessments of LLMs.
+
+> Our modeling, scaling and generalization techniques grew faster than our benchmarking abilities --- which in turn have resulted in poor evaluation and hyped capabilities. Every ability is amazing and great, if we do not have the tools to figure out what that ability is, or how good the model is at that ability. We'd always believe the model will win every race, if all we do, is have the race on paved roads, with yellow trees on every right turns, and green trees on every left turn.
