@@ -90,7 +90,7 @@ Using the similar set of datasets for evaluation come with a another set of prob
     ![Prompt parts: Start, Process and Output Steer and influences that arise from it](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-e7dac9ea4e5.png)
 
     :::
--   Untraceability: Going back to the point of [data leakage](/3f50a6e3dbed45f988ef288e0f0d6734#4c9e61e62b184efda1c249fd3bab0a6e); while it used to always be a problem; now that no one has any idea about any of the data that went into the model, even the best-faith and triple checked evaluation has no guarantees of being a out of distribution evaluation.
+-   Untraceability: Going back to the point of data leakage; while it used to always be a problem; now that no one has any idea about any of the data that went into the model, even the best-faith and triple checked evaluation has no guarantees of being a out of distribution evaluation.
 
 ### What can these evaluation datasets look like? {#what-can-these-evaluation-datasets-look-like-}
 
