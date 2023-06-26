@@ -192,6 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#partitioning-and-phrasing" id="toc-partitioning-and-phrasing" class="nav-link" data-scroll-target="#partitioning-and-phrasing">Partitioning and phrasing</a></li>
   <li><a href="#random-seed" id="toc-random-seed" class="nav-link" data-scroll-target="#random-seed">Random seed</a></li>
   <li><a href="#precision-vs-recall-tradeoff" id="toc-precision-vs-recall-tradeoff" class="nav-link" data-scroll-target="#precision-vs-recall-tradeoff">Precision vs Recall Tradeoff</a></li>
+  <li><a href="#unexplained-decisions" id="toc-unexplained-decisions" class="nav-link" data-scroll-target="#unexplained-decisions">Unexplained Decisions</a></li>
   </ul></li>
   <li><a href="#issues-with-evaluation-wrt-llms" id="toc-issues-with-evaluation-wrt-llms" class="nav-link" data-scroll-target="#issues-with-evaluation-wrt-llms">Issues with Evaluation wrt LLMs</a>
   <ul class="collapse">
@@ -200,12 +201,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#what-can-these-evaluation-datasets-look-like-" id="toc-what-can-these-evaluation-datasets-look-like-" class="nav-link" data-scroll-target="#what-can-these-evaluation-datasets-look-like-">What can these evaluation datasets look like?</a></li>
   </ul></li>
   <li><a href="#model-output" id="toc-model-output" class="nav-link" data-scroll-target="#model-output">Model Output</a></li>
-  <li><a href="#sample-output-transformation" id="toc-sample-output-transformation" class="nav-link" data-scroll-target="#sample-output-transformation">Sample/Output Transformation</a></li>
+  <li><a href="#sample-output-transformation" id="toc-sample-output-transformation" class="nav-link" data-scroll-target="#sample-output-transformation">Sample/Output Transformation</a>
+  <ul class="collapse">
+  <li><a href="#looped-transformations" id="toc-looped-transformations" class="nav-link" data-scroll-target="#looped-transformations">Looped Transformations</a></li>
+  <li><a href="#chained-transformations" id="toc-chained-transformations" class="nav-link" data-scroll-target="#chained-transformations">Chained Transformations</a></li>
+  <li><a href="#atomic-outputs" id="toc-atomic-outputs" class="nav-link" data-scroll-target="#atomic-outputs">Atomic Outputs</a></li>
+  <li><a href="#constrained-output" id="toc-constrained-output" class="nav-link" data-scroll-target="#constrained-output">Constrained Output</a></li>
+  </ul></li>
   <li><a href="#ground-truth" id="toc-ground-truth" class="nav-link" data-scroll-target="#ground-truth">Ground Truth</a></li>
   <li><a href="#evaluation-medium" id="toc-evaluation-medium" class="nav-link" data-scroll-target="#evaluation-medium">Evaluation Medium</a>
   <ul class="collapse">
-  <li><a href="#direct-evaluation-metrics-" id="toc-direct-evaluation-metrics-" class="nav-link" data-scroll-target="#direct-evaluation-metrics-">Direct Evaluation Metrics:</a></li>
-  <li><a href="#auxiliary-models-based-evaluation" id="toc-auxiliary-models-based-evaluation" class="nav-link" data-scroll-target="#auxiliary-models-based-evaluation">Auxiliary models-based evaluation</a></li>
+  <li><a href="#direct-evaluation-metrics" id="toc-direct-evaluation-metrics" class="nav-link" data-scroll-target="#direct-evaluation-metrics">Direct Evaluation Metrics</a></li>
+  <li><a href="#indirect-model-based-evaluation" id="toc-indirect-model-based-evaluation" class="nav-link" data-scroll-target="#indirect-model-based-evaluation">Indirect Model-Based Evaluation</a></li>
   <li><a href="#model-driven-evaluation" id="toc-model-driven-evaluation" class="nav-link" data-scroll-target="#model-driven-evaluation">Model-Driven Evaluation</a></li>
   </ul></li>
   <li><a href="#performance-report" id="toc-performance-report" class="nav-link" data-scroll-target="#performance-report">Performance Report</a></li>
@@ -258,13 +265,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-8c052dbad49.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-8c052dbad49.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
-<section id="introduction" class="level1">
+<section id="introduction" class="level1 page-columns page-full">
 <h1>Introduction</h1>
 <p>Every popular paper later, we keep coming back to the same questions: how do we know that this is a good evaluation?</p>
 <blockquote class="blockquote">
 <p><em>Note</em>: While this document will be updated with references in time; I am not claiming all of the ideas here are my own. They are of course inspired and based off many other research outcomes I trust; and I will slowly come around to include them here.</p>
 </blockquote>
-<p>And unfortunately, the answer is not as simple. I might even go as far to say; it — in most likelihood is not solid. We might want it to be, but evaluation and benchmarking had already been complicated, even for classification models. We, honestly never solved it for small generative models and long form generations; and then suddenly we were faced with an influx of extremely large, multi-purpose language models; aka; foundation models.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>You can always make pull requests to add sources and examples <a href="https://github.com/nlpurr/nlpurr.github.io/blob/master/posts/case-of-llm-evals.qmd">here</a>.</p>
+</div></div><p>And unfortunately, the answer is not as simple. I might even go as far to say; it — in most likelihood is not solid. We might want it to be, but evaluation and benchmarking had already been complicated, even for classification models. We, honestly never solved it for small generative models and long form generations; and then suddenly we were faced with an influx of extremely large, multi-purpose language models; aka; foundation models.</p>
 <p>And now everyone is left with these carefully curated academic datasets that they report numbers on; that in all likelihood leaked into the training set when the whole accessible internet was scraped for it; and; buggy techniques; because we as ML practitioners were never taught basic statistics.</p>
 </section>
 <section id="common-problems-with-evaluation-in-machine-learning" class="level1">
@@ -298,7 +308,7 @@ Note
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="tweet-25178"></div><script>tweet={"url":"https:\/\/twitter.com\/MaartenBosma\/status\/1672349512499867648","author_name":"Maarten Bosma","author_url":"https:\/\/twitter.com\/MaartenBosma","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EGood question! PaLM used a different eval split. We have now added our results on that split as well, and we outperform PaLM by quite a margin. \u003Ca href=\"https:\/\/t.co\/mimZE8TSuB\"\u003Epic.twitter.com\/mimZE8TSuB\u003C\/a\u003E\u003C\/p\u003E&mdash; Maarten Bosma (@MaartenBosma) \u003Ca href=\"https:\/\/twitter.com\/MaartenBosma\/status\/1672349512499867648?ref_src=twsrc%5Etfw\"\u003EJune 23, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-25178").innerHTML = tweet["html"];</script>
+<div id="tweet-58022"></div><script>tweet={"url":"https:\/\/twitter.com\/MaartenBosma\/status\/1672349512499867648","author_name":"Maarten Bosma","author_url":"https:\/\/twitter.com\/MaartenBosma","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EGood question! PaLM used a different eval split. We have now added our results on that split as well, and we outperform PaLM by quite a margin. \u003Ca href=\"https:\/\/t.co\/mimZE8TSuB\"\u003Epic.twitter.com\/mimZE8TSuB\u003C\/a\u003E\u003C\/p\u003E&mdash; Maarten Bosma (@MaartenBosma) \u003Ca href=\"https:\/\/twitter.com\/MaartenBosma\/status\/1672349512499867648?ref_src=twsrc%5Etfw\"\u003EJune 23, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-58022").innerHTML = tweet["html"];</script>
 </div>
 </div>
 </div>
@@ -312,13 +322,17 @@ Note
 <h3 class="anchored" data-anchor-id="precision-vs-recall-tradeoff">Precision vs Recall Tradeoff</h3>
 <p>While many people are content with reporting accuracy results, it has been well known that the impact of false positives vs false negatives isn’t the same for every task. If you are using an ML model for IR, and see a false-positive or miss a false-negative; it is probably alright. If you are using the same model for passive health monitoring, a false negative is heavily</p>
 </section>
+<section id="unexplained-decisions" class="level3">
+<h3 class="anchored" data-anchor-id="unexplained-decisions">Unexplained Decisions</h3>
+<p>There have been many decisions of removing or keeping data, that have existed across the existence of machine learning. In audio, many numbers are reported by discarding data samples that are under a certain length because they might not constitute as utterances. Knowing and explaining those thresholds is not only important for paper review or discussion but also for replication.</p>
+</section>
 </section>
 <section id="issues-with-evaluation-wrt-llms" class="level1 page-columns page-full">
 <h1>Issues with Evaluation wrt LLMs</h1>
 <p>Now that we have that information, let’s talk about the components of LLM evaluation. You can breakdown any LLM evaluation into 6 components:</p>
 <section id="evaluation-datasets" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="evaluation-datasets">Evaluation Datasets</h2>
-<p>Evaluation Datasets: These are the test samples that the model is being evaluated for. There are multiple ways to construct these evaluation datasets and to use them; each of them coming with its own set of problems.</p>
+<p>Evaluation Datasets or Evaluation Sets or Eval Sets: These are the test samples that the model is being evaluated for. There are multiple ways to construct these evaluation datasets and to use them; each of them coming with its own set of problems.</p>
 <p>Using the similar set of datasets for evaluation come with a another set of problems:</p>
 <ul>
 <li><p>Fuzziness in prompts: Now that there are prompts involved in the process; we really need to consider the fuzziness that comes from the prompt itself. While the evaluation datasets were used without any “instruction language” or “prompted addition”, the test samples at least remained consistent. The prompts here may not. I talk more about prompt introduced variability in my other post about prompt based benchmarking. It specifically talks about three components of a prompt for standardizing prompt based evaluation: prompt steer, sample steer, output steer. You can read it here [TODO].</p>
@@ -328,22 +342,90 @@ Note
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-e7dac9ea4e5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Prompt parts: Start, Process and Output Steer and influences that arise from it"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-e7dac9ea4e5.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-e7dac9ea4e5.png" class="lightbox" title="Prompt parts: Start, Process and Output Steer and influences that arise from it" data-gallery="quarto-lightbox-gallery-2"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-e7dac9ea4e5.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption">Prompt parts: Start, Process and Output Steer and influences that arise from it</figcaption>
 </figure>
 </div>
 </div></div><section id="what-can-these-evaluation-datasets-look-like-" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="what-can-these-evaluation-datasets-look-like-">What can these evaluation datasets look like?</h3>
+<blockquote class="blockquote">
+<p>Suggest examples in pull requests and I will merge them here</p>
+</blockquote>
+<p>Pre-curated evaluation sets from various standardized tests — These are mostly designed to be differentiating for humans and not for models. Additionally, they can have memorization based questions, that can incorrectly be inferred as understanding in context of evaluating LLMs.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Pre-curated eval sets">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pre-curated eval sets
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<p>Web scraped evaluation sets for ML model testing — These datasets are created by scraping the internet for particular tags and using the corresponding tag as the label for the sample itself or are annotated by various human annotators. The samples from these datasets are most likely to be present in the training set of these foundation models itself and hence, it is often not a good idea to just rely on these for evaluation.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Scraped eval sets">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Scraped eval sets
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<p>Human created and curated evaluation sets for the sole purpose of evaluating a task — These test sets are usually designed as a measure against data leakage. After all, humans can probably create a distinct enough pattern to evaluate against. While that is a pro, these datasets come with flaws of their own; for example they are really small and, are harder to create and update.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Human curated eval sets">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Human curated eval sets
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <ul>
-<li>Pre-curated datasets from various standardized tests — These are mostly designed to be differentiating for humans and not for models. Additionally, they can have memorization based questions, that can incorrectly be inferred as understanding in context of evaluating LLMs.</li>
-<li>Human curated tests for the sole purpose of evaluating a task — These test sets are usually designed as a measure against data leakage. After all, humans can probably create a distinct enough pattern to evaluate against. While that is a pro, these datasets come with flaws of their own; for example they are really small and, do not usually have</li>
-<li>Ad-hoc testing samples by humans — These are performed as conversation based evaluation of these models. While they are most likely to be accurate; they are are biased by the mere idea that the human usually needs to know the solution to the problem to be able the question for evaluation purposes. This often ends up in; what I call as; <code>human imagination collapse</code> or the likelihood that an individual human would often be set on a trajectory to test for and not meaningfully diversify; at least in a single setting.</li>
+<li><a href="https://arxiv.org/abs/2107.03374">HumanEval</a></li>
 </ul>
+</div>
+</div>
+</div>
+<p>Ad-hoc testing samples by humans — These are performed as conversation based evaluation of these models. While they are most likely to be accurate; they are are biased by the mere idea that the human usually needs to know the solution to the problem to be able the question for evaluation purposes. This often ends up in; what I call as; <code>human imagination collapse</code> or the likelihood that an individual human would often be set on a trajectory to test for and not meaningfully diversify; at least in a single setting.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Ad-hoc testing">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ad-hoc testing
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-0fc2f888363.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="From this tweet by Subbarao Kambhampati (కంభంపాటి సుబ్బారావు)"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-0fc2f888363.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-0fc2f888363.png" class="lightbox" title="From this tweet by Subbarao Kambhampati (కంభంపాటి సుబ్బారావు)" data-gallery="quarto-lightbox-gallery-3"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-0fc2f888363.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption">From this <a href="https://twitter.com/NLPurr/status/1672714169001590784">tweet</a> by <a href="https://twitter.com/rao2z"><strong>Subbarao Kambhampati (కంభంపాటి సుబ్బారావు)</strong></a></figcaption>
 </figure>
 </div>
@@ -357,16 +439,113 @@ Note
 <li>Model output is heavily dependent on the (a) prompt asked for the output; and (b) the answers asked for. For example, if you ask a model for a label 0 or 1; vs asking a model for labels in words (for example: spam or not spam); you might end up with different outcomes. Another example: asking a model for a direct output and extracting the answer can lead to a different answer than in the multiple-choice scenario.</li>
 <li>Regression based model outcome does not necessarily scale and hence can change the standard deviation and mean of the regressed output. For example, if you ask a model to provide a graded rating between 0-10; you cannot with certainty scale that grading to 0-1, especially if you care about significance testing.</li>
 </ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="Do you want to know why this is a problem with examples?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Do you want to know why this is a problem with examples?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Let’s take the example in <a href="https://arxiv.org/pdf/2306.11644.pdf">Textbooks are all you need</a> paper again and ask it to grade 2 responses on 3 scales.</p>
+<p>Why? Because the description says that the GPT4 model was asked to grade between 0-10, but the numbers are reported scaled between 0-1.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-38d35b72660.png" class="lightbox" title="The paper saying that the model is asked for grades between 0 to 10, and that is then scaled to report between 0-1." data-gallery="quarto-lightbox-gallery-8"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-38d35b72660.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">The paper saying that the model is asked for grades between 0 to 10, and that is then scaled to report between 0-1.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-36a1e237255.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-36a1e237255.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+<p>Let’s start with the completely correct response.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-0d50e7c6848.png" class="lightbox" title="The GPT4 model says the response is 9/10 when asked for a grade between 0-10." data-gallery="quarto-lightbox-gallery-10"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-0d50e7c6848.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">The GPT4 model says the response is 9/10 when asked for a grade between 0-10.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-44ef7ec4988.png" class="lightbox" title="The GPT4 model says the response is .95/10 when asked for a grade between 0-1." data-gallery="quarto-lightbox-gallery-11"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-44ef7ec4988.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">The GPT4 model says the response is .95/10 when asked for a grade between 0-1.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-5b3c7e7a4b4.png" class="lightbox" title="The GPT4 model says the response is 4.5/5 when asked for a grade between 0-5; which is great, right? Because at least the scaling is consistent." data-gallery="quarto-lightbox-gallery-12"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-5b3c7e7a4b4.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">The GPT4 model says the response is 4.5/5 when asked for a grade between 0-5; which is great, right? Because at least the scaling is consistent.</figcaption>
+</figure>
+</div>
+<p>But, let’s consider some other solutions, those that are incorrect in some way or another. Let’s do this by changing squaring to 2.2, and sorting the second list in reverse.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-7d63e513030.png" class="lightbox" title="The GPT4 model says the response is 8/10 when asked for a grade between 0-10." data-gallery="quarto-lightbox-gallery-13"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-7d63e513030.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">The GPT4 model says the response is 8/10 when asked for a grade between 0-10.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-88c3f3d29ff.png" class="lightbox" title="The GPT4 model says the response is 4.5/5 when asked for a grade between 0-5. The scaling is constant here too!" data-gallery="quarto-lightbox-gallery-14"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-88c3f3d29ff.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">The GPT4 model says the response is 4.5/5 when asked for a grade between 0-5. The scaling is constant here too!</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-2a516565700.png" class="lightbox" title="The GPT4 model says that the response is 0.9/1. And now all the scaling is messed up." data-gallery="quarto-lightbox-gallery-15"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-2a516565700.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">The GPT4 model says that the response is 0.9/1. And now all the scaling is messed up.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="sample-output-transformation" class="level2">
 <h2 class="anchored" data-anchor-id="sample-output-transformation">Sample/Output Transformation</h2>
 <p>There are many transformations applied to model outputs or their inputs. These can roughly be divided into 4 categories:</p>
-<ul>
-<li>Looped Transformations: Loop based transformations usually follow the philosophy of —&gt; what if we additionally add the model output + some form of evaluation of the current answer back into the model; such that it eventually reaches the perfect outcome. Some examples of these would be Self-Critique models.</li>
-<li>Chained Transformations: Chain based transformations usually do not have a measured evaluation in between a set of model input → output → model input and so on. These chains are usually pre-defined and have a restricted number of paths to follow.</li>
-<li>Atomic Outputs: This method involves breaking down the output of a model; either manually, through a rule based system or through AI itself; into atomic components that can be evaluated individually to combine to form a larger weighted grade.</li>
-<li>Constrained Output: This method involves either using log probability (which isn’t accessible in case of GPT3.5/GPT4 APIs) or other internal constraints to ensure that the model responds with tokens belonging to a certain pre-decided or allowed distribution.</li>
-</ul>
+<section id="looped-transformations" class="level3">
+<h3 class="anchored" data-anchor-id="looped-transformations">Looped Transformations</h3>
+<p>Loop based transformations usually follow the philosophy of —&gt; what if we additionally add the model output + some form of evaluation of the current answer (either from the same model, another model or a human) back into the model; such that it eventually reaches the perfect outcome. Some examples of these would be Self-Critique models.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example Papers">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example Papers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-ad9844c143d.png" class="lightbox" title="Reflexion: Language Agents with Verbal Reinforcement Learning develops a modular formulation for Reflexion, utilizing three distinct models: an Actor generates text and actions; an Evaluator model scores the outputs produced by Actor; and a Self-Reflection model, generates verbal reinforcement cues to assist the Actor in self-improvement." data-gallery="quarto-lightbox-gallery-16"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-ad9844c143d.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption"><a href="https://arxiv.org/pdf/2303.11366.pdf">Reflexion: Language Agents with Verbal Reinforcement Learning</a> develops a modular formulation for Reflexion, utilizing three distinct models: an Actor generates text and actions; an Evaluator model scores the outputs produced by Actor; and a Self-Reflection model, generates verbal reinforcement cues to assist the Actor in self-improvement.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="chained-transformations" class="level3">
+<h3 class="anchored" data-anchor-id="chained-transformations">Chained Transformations</h3>
+<p>Chain based transformations usually do not have a measured evaluation in between a set of model input → output → model input and so on. These chains are usually pre-defined and have a restricted number of paths to follow.</p>
+</section>
+<section id="atomic-outputs" class="level3">
+<h3 class="anchored" data-anchor-id="atomic-outputs">Atomic Outputs</h3>
+<p>This method involves breaking down the output of a model; either manually, through a rule based system or through AI itself; into atomic components that can be evaluated individually to combine to form a larger weighted grade.</p>
+</section>
+<section id="constrained-output" class="level3">
+<h3 class="anchored" data-anchor-id="constrained-output">Constrained Output</h3>
+<p>This method involves either using log probability (which isn’t accessible in case of GPT3.5/GPT4 APIs) or other internal constraints to ensure that the model responds with tokens belonging to a certain pre-decided or allowed distribution.</p>
+</section>
 </section>
 <section id="ground-truth" class="level2">
 <h2 class="anchored" data-anchor-id="ground-truth">Ground Truth</h2>
@@ -382,25 +561,95 @@ Note
 <section id="evaluation-medium" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="evaluation-medium">Evaluation Medium</h2>
 <p>In my perspective, the evaluation medium can be categorized into three distinct groups.</p>
-<section id="direct-evaluation-metrics-" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="direct-evaluation-metrics-">Direct Evaluation Metrics:</h3>
+<section id="direct-evaluation-metrics" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="direct-evaluation-metrics">Direct Evaluation Metrics</h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example Papers">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example Papers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-d9a5f74b47b.png" class="lightbox" title="Textbooks are all you needevaluation with HumanEval and MBPP" data-gallery="quarto-lightbox-gallery-17"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-d9a5f74b47b.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption"><a href="https://arxiv.org/pdf/2306.11644.pdf">Textbooks are all you need</a>evaluation with HumanEval and MBPP</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 <p>The first category I call "direct evaluation metrics." These are the traditional metrics that have been widely used in the field for a long time. Metrics like accuracy and F1 score fall into this category. Typically, this approach involves obtaining a single output from the model and comparing it to a reference, either through constraints or by extracting the desired information. The evaluation can be done through ad-hoc conversation-based evaluation, curated specialized test sets, or direct annotation.</p>
 <p>For instance, one direct evaluation metric is comparing the model's accuracy directly to the ground truth. When evaluating multiple-choice question answers, the comparison can be based on matching the choice letter, the complete choice, or the distribution over choices. To gain a deeper understanding of how these evaluation approaches can impact the results, check out this article: <a href="https://huggingface.co/blog/evaluating-mmlu-leaderboard">What's going on with the Open LLM Leaderboard and Llama?</a></p>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-1bc49b90841.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Now how do we evaluate the model from these prompts?"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-1bc49b90841.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-1bc49b90841.png" class="lightbox" title="Now how do we evaluate the model from these prompts?" data-gallery="quarto-lightbox-gallery-4"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-1bc49b90841.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption"><strong>Now how do we evaluate the model from these prompts?</strong></figcaption>
 </figure>
 </div>
 </div></div></section>
-<section id="auxiliary-models-based-evaluation" class="level3">
-<h3 class="anchored" data-anchor-id="auxiliary-models-based-evaluation">Auxiliary models-based evaluation</h3>
+<section id="indirect-model-based-evaluation" class="level3">
+<h3 class="anchored" data-anchor-id="indirect-model-based-evaluation">Indirect Model-Based Evaluation</h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example Papers">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example Papers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-384f6f3ee9b.png" class="lightbox" title="Rubric based from the same model. TinyStories: How Small Can Language Models Be and Still Speak Coherent English?" data-gallery="quarto-lightbox-gallery-18"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-384f6f3ee9b.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">Rubric based from the same model.<br>
+<a href="https://arxiv.org/pdf/2305.07759.pdf">TinyStories: How Small Can Language Models Be and Still Speak Coherent English?</a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 <p>Moving on to the second category, we have "indirect heuristics." Here, we utilize smaller models, whether they are fine-tuned or raw decompositions, to evaluate the answers generated by the main model. The idea is to leverage these smaller models, which excel at specific tasks that large language models are generally good at, such as adjective identification or polarity identification. The outputs of these smaller models act as weak scores that are combined to provide a final label or evaluation for the generated output. This indirect evaluation approach allows for a more nuanced assessment of the model's performance, particularly in areas like the likability of prose. Although these models introduce some variability, it's important to note that they are often trained for regression tasks and fine-tuned for specific purposes.</p>
 </section>
 <section id="model-driven-evaluation" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="model-driven-evaluation">Model-Driven Evaluation</h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="Papers">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Papers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-594e8bc80cb.png" class="lightbox" title="Bring Your Own Data! Self-Supervised Evaluation forLarge Language Models evaluation based on invariance of model output based on fuzzed input samples" data-gallery="quarto-lightbox-gallery-19"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-594e8bc80cb.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption"><a href="https://arxiv.org/pdf/2306.13651.pdf">Bring Your Own Data! Self-Supervised Evaluation forLarge Language Models</a> evaluation based on invariance of model output based on fuzzed input samples</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-62202ec9cb6.png" class="lightbox" title="Textbooks are all you needevaluation with GPT4" data-gallery="quarto-lightbox-gallery-20"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-62202ec9cb6.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption"><a href="https://arxiv.org/pdf/2306.11644.pdf">Textbooks are all you need</a>evaluation with GPT4</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 <p>The third category I refer to as "model-driven evaluation." In these cases, the model itself provides the final score or evaluation. However, this introduces an additional layer of variability. Even if the model has access to ground truth information, the evaluation metric itself may introduce randomness or variability in the scoring process. For example, a common evaluation question could be: "Is this generated output (O) similar to the ground truth answer (G)?" The answer to this question not only depends on the randomness associated with the model's output but also on the inherent variability of the evaluation metric.</p>
 <p>It's important to remember that recent evaluation practices may involve the inclusion or exclusion of ground truth in model-driven evaluation.</p>
 <p>This can lead to 2 kinds of model-driven evaluations:</p>
@@ -412,7 +661,7 @@ Note
 <p>For example, this is why the authors of <a href="https://arxiv.org/abs/2306.11644">Textbooks are all you need</a> believe this is a correct method of evaluation.</p>
 <div class="tweet">
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -421,15 +670,15 @@ Note
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="tweet-49258"></div><script>tweet={"url":"https:\/\/twitter.com\/EldanRonen\/status\/1673107981742010370","author_name":"Ronen Eldan","author_url":"https:\/\/twitter.com\/EldanRonen","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EThere&#39;s a reason that in coding exams\/interviews, grades are not only based on whether the code passes unit tests, but rather a human reads through the code and determines the level of understanding reflected from it.\u003C\/p\u003E&mdash; Ronen Eldan (@EldanRonen) \u003Ca href=\"https:\/\/twitter.com\/EldanRonen\/status\/1673107981742010370?ref_src=twsrc%5Etfw\"\u003EJune 25, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-49258").innerHTML = tweet["html"];</script>
+<div id="tweet-23783"></div><script>tweet={"url":"https:\/\/twitter.com\/EldanRonen\/status\/1673107981742010370","author_name":"Ronen Eldan","author_url":"https:\/\/twitter.com\/EldanRonen","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EThere&#39;s a reason that in coding exams\/interviews, grades are not only based on whether the code passes unit tests, but rather a human reads through the code and determines the level of understanding reflected from it.\u003C\/p\u003E&mdash; Ronen Eldan (@EldanRonen) \u003Ca href=\"https:\/\/twitter.com\/EldanRonen\/status\/1673107981742010370?ref_src=twsrc%5Etfw\"\u003EJune 25, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-23783").innerHTML = tweet["html"];</script>
 </div>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Detailed account of why I believe that using GPT-4 as a judge is incorrect in this case">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -438,7 +687,7 @@ Detailed account of why I believe that using GPT-4 as a judge is incorrect in th
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>But this, in my opinion, is not a correct way to account for non-binary labels. Especially in coding, when there is an existing method to run the function through tests and have assertions against expected answers. My judgement might have been different had this evaluation method been proposed for a subjective task, but coding, is both, an objective and assertable task, and this evaluation method discards all these properties of a coding task in general.</p>
 <p>Let’s break this down:</p>
@@ -457,17 +706,17 @@ Detailed account of why I believe that using GPT-4 as a judge is incorrect in th
 <p>Doesn’t GPT4 as a judge solve these problems anyway? No, no it does not.</p>
 <p>Why not?</p>
 <ul>
-<li><p>The method does not provide the exact same number every single time. For example, let’s consider the same doc string as mentioned above. And let’s evaluate how good Mosaic 30B-Chat is good at programming. <a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-05b010e3aee.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-05b010e3aee.png" class="img-fluid"></a></p>
+<li><p>The method does not provide the exact same number every single time. For example, let’s consider the same doc string as mentioned above. And let’s evaluate how good Mosaic 30B-Chat is good at programming. <a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-05b010e3aee.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-05b010e3aee.png" class="img-fluid"></a></p>
 <p>Now, let us ask GPT4 to judge this. Not only the answer changes, the model suggests to do something that was not even asked for.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-a330cd6b0c2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="The model scores it 9.5/10"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-a330cd6b0c2.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-a330cd6b0c2.png" class="lightbox" title="The model scores it 9.5/10" data-gallery="quarto-lightbox-gallery-23"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-a330cd6b0c2.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption">The model scores it 9.5/10</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-0ebbca38746.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="The model scores it 9/10"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-0ebbca38746.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-0ebbca38746.png" class="lightbox" title="The model scores it 9/10" data-gallery="quarto-lightbox-gallery-24"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-0ebbca38746.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption">The model scores it 9/10</figcaption>
 </figure>
 </div></li>
@@ -483,19 +732,19 @@ Detailed account of why I believe that using GPT-4 as a judge is incorrect in th
 <p>GPT4 judges it to be 4/10. And, it does not see that the threshold value was changed.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-37b899bb621.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="The model scores the completely incorrect function at 4/10. It ignores an error. In the previous pictures, it creates an error or a suggestion which was not asked for and will render the code incorrect."><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-37b899bb621.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-37b899bb621.png" class="lightbox" title="The model scores the completely incorrect function at 4/10. It ignores an error. In the previous pictures, it creates an error or a suggestion which was not asked for and will render the code incorrect." data-gallery="quarto-lightbox-gallery-25"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-37b899bb621.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption">The model scores the completely incorrect function at 4/10. It ignores an error. In the previous pictures, it creates an error or a suggestion which was not asked for and will render the code incorrect.</figcaption>
 </figure>
 </div></li>
-<li><p>Anything weird to the model, that is not in the general expected distribution will be marked low. For example, here is a correct code that is marked lower just because it is unexpected by GPT4. <a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-de21fe993b3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Model invents a requirement that does not exist, writes incorrect code and grades the correct code 8.5/10."><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-de21fe993b3.png" class="img-fluid" alt="Model invents a requirement that does not exist, writes incorrect code and grades the correct code 8.5/10."></a></p></li>
+<li><p>Anything weird to the model, that is not in the general expected distribution will be marked low. For example, here is a correct code that is marked lower just because it is unexpected by GPT4. <a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-de21fe993b3.png" class="lightbox" title="Model invents a requirement that does not exist, writes incorrect code and grades the correct code 8.5/10." data-gallery="quarto-lightbox-gallery-26"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-de21fe993b3.png" class="img-fluid" alt="Model invents a requirement that does not exist, writes incorrect code and grades the correct code 8.5/10."></a></p></li>
 </ul>
 </div>
 </div>
 </div>
-<div class="no-row-height column-margin column-container"><div class="callout-3-contents callout-collapse collapse show callout-margin-content">
+<div class="no-row-height column-margin column-container"><div class="callout-12-contents callout-collapse collapse show callout-margin-content">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-16699c3485b.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-16699c3485b.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-16699c3485b.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-16699c3485b.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
 </div></div></section>
@@ -526,29 +775,13 @@ Detailed account of why I believe that using GPT-4 as a judge is incorrect in th
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-1dcf9af277d.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Evaluation harness thematic grouping. Read more at https://www.mosaicml.com/blog/mpt-30b"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-1dcf9af277d.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-1dcf9af277d.png" class="lightbox" title="Evaluation harness thematic grouping. Read more at https://www.mosaicml.com/blog/mpt-30b" data-gallery="quarto-lightbox-gallery-7"><img src="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-1dcf9af277d.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption">Evaluation harness thematic grouping. Read more at <a href="https://www.mosaicml.com/blog/mpt-30b" class="uri">https://www.mosaicml.com/blog/mpt-30b</a></figcaption>
 </figure>
 </div>
 </div></div><p>Lastly, we must address the concept of prompt-fine tuning. Numerous research papers present results on the test set by identifying the best prompt for a given task. While this approach may seem reasonable in theory, it fails to provide a reliable measure of the model's performance when it comes to solving real-world problems encountered by average users. If the intention is to use the prompt as an auxiliary component in a pipeline, then finding the optimal prompt for the task and model is acceptable. However, for direct user-facing end-to-end models, it is crucial to acknowledge that the best prompt for obtaining the correct answer may not be realistic or feasible for all users, especially in the case of general-purpose models.</p>
-<div class="tweet">
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div id="tweet-29943"></div><script>tweet={"url":"https:\/\/twitter.com\/ArmenAgha\/status\/1669098472493162497","author_name":"Armen Aghajanyan","author_url":"https:\/\/twitter.com\/ArmenAgha","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E1. Manually annotate 1k fuzzing prompts\u003Cbr\u003E2. Finetune LLaMa on this 1k a la LIMA\u003Cbr\u003E3. Apply fuzzing to standard benchmarks\u003Cbr\u003E4. Re-evaluate common models?\u003Cbr\u003E\u003Cbr\u003ELikely this will work, not sure if anyone has done this.\u003C\/p\u003E&mdash; Armen Aghajanyan (@ArmenAgha) \u003Ca href=\"https:\/\/twitter.com\/ArmenAgha\/status\/1669098472493162497?ref_src=twsrc%5Etfw\"\u003EJune 14, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-29943").innerHTML = tweet["html"];</script>
-</div>
-</div>
-</div>
-</div>
+<p>::: {.twitter user=ArmenAgha status_id=1669098472493162497}<br>
+:::</p>
 <blockquote class="blockquote">
 <p><strong>Side note:</strong> There is a proposal of encrypting and encoding prompts and evaluation. And I completely support that proposal. While in an ideal world we might want opt-in for data, this isn’t the case at the moment, and we can safeguard ourselves from train-test leakage concerns.</p>
 <p>I have lost this paper in my never-ending pile. If someone finds this paper, please let me know and I will edit this document.</p>
@@ -558,6 +791,9 @@ Note
 <section id="tl-dr" class="level1">
 <h1>tl;dr</h1>
 <p>In the realm of evaluating language models (LLMs), we find ourselves grappling with intricate questions about the reliability of our assessments. The truth is, evaluation and benchmarking have always been challenging, and the advent of large, multi-purpose models has only compounded the complexities. Issues such as data leakage, coverage limitations, spurious correlations, and partitioning quandaries plague our evaluation practices. To make matters worse, precision vs.&nbsp;recall tradeoffs and the lack of ground truth further muddy the waters. This post explores the common problems with evaluation in machine learning and delves into the specific challenges posed by LLMs. We categorize evaluation mediums into direct metrics, auxiliary models-based evaluation, and model-driven evaluation, shedding light on the nuances of each approach. With a cautious eye, we navigate the intricacies of reporting performance numbers and emphasize the importance of granularity. Prompt-fine tuning is also scrutinized, reminding us to consider the realism of user interactions. As we venture deeper into the evaluation landscape, it becomes clear that a comprehensive understanding of these complexities is essential for meaningful assessments of LLMs.</p>
+<blockquote class="blockquote">
+<p>Our modeling, scaling and generalization techniques grew faster than our benchmarking abilities — which in turn have resulted in poor evaluation and hyped capabilities. Every ability is amazing and great, if we do not have the tools to figure out what that ability is, or how good the model is at that ability. We’d always believe the model will win every race, if all we do, is have the race on paved roads, with yellow trees on every right turns, and green trees on every left turn.</p>
+</blockquote>
 
 
 </section>
@@ -799,7 +1035,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <script src="https://giscus.app/client.js" data-repo="nlpurr/nlpurr.github.io" data-repo-id="R_kgDOJo8TQA" data-category="Announcements" data-category-id="DIC_kwDOJo8TQM4CW3Zf" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","loop":true,"openEffect":"zoom"});</script>
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","loop":true});</script>
 
 
 
