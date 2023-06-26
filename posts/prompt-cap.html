@@ -41,6 +41,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/collapse-social-embeds-1.0.0/collapse.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -222,23 +226,43 @@ ul.task-list li input[type="checkbox"] {
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>"LLMs", or Language Models, need to be trained and tested on different datasets and prompts to improve functionality and accuracy. In addition, versioning is important when assessing LLMs. Iterating on the prompts and datasets can produce better results. However, keeping different versions of both prompts and datasets can help identify which changes in the model's performance led to improvements. All these practices should be followed to effectively evaluate and improve LLMs.</p>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-4ea3c09cf3d.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-4ea3c09cf3d.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-4ea3c09cf3d.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 </section>
 <section id="what-does-usual-model-training-look-like-" class="level1">
 <h1>What does usual model training look like?</h1>
 <p>In machine learning, it's common to divide a dataset into three parts: the train set, validation set, and test set. The train set is used to train a machine learning model, the validation set is used to tune the hyperparameters of the model, and the test set is used to measure the final performance of the model.</p>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-63cfd74ac5b.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-63cfd74ac5b.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-63cfd74ac5b.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 <p>There are some pre-established norms when it comes to creating these subsets. For instance, the training set should be diverse and heterogeneous, while the validation and test sets should not have any leakage or spurious correlations from the train set. By following these best practices, data scientists can create effective and accurate machine learning models that can be used for a wide range of applications.</p>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-6cbf1ea978d.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-6cbf1ea978d.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-6cbf1ea978d.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 </section>
 <section id="problems-with-closed-llms" class="level1">
 <h1>Problems with Closed LLMs</h1>
 <p>The use of closed language models (LLMs) poses certain challenges when it comes to testing their performance. If we do not know what went into the training dataset of a closed LLM, it is very likely that the test dataset we use or generate will be contaminated. This can result in inaccurate performance metrics and difficulty in verifying the correctness of the model's responses.</p>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-69887e3e0dd.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-69887e3e0dd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-69887e3e0dd.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 <p>Prompt-based benchmarking can exacerbate these challenges further by introducing another layer of complexity. If we are not directly testing for an "input sample" to "output" correspondence, the way we write the prompt and what we ask for as an output will significantly change how we benchmark the ability of any model. This can make evaluating the performance of a closed LLM more difficult and error-prone, and increase the risk of producing biased results.</p>
 <section id="prompting-closed-llms" class="level2">
 <h2 class="anchored" data-anchor-id="prompting-closed-llms">Prompting Closed LLMs</h2>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-f258297f659.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-f258297f659.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-f258297f659.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 <p>When we are limited to observations, it becomes essential to employ experimental design in order to assess the capabilities of a model.</p>
 <p>In order to do effectively, there are three key components we require:</p>
 <ul>
@@ -251,9 +275,29 @@ ul.task-list li input[type="checkbox"] {
 <section id="prompt-based-experimental-design-schemas" class="level2">
 <h2 class="anchored" data-anchor-id="prompt-based-experimental-design-schemas">Prompt Based Experimental Design Schemas</h2>
 <p>For details, look at this twitter <a href="https://twitter.com/mcxfrank/status/1643296168276033538">thread</a>.</p>
-<p>::: {.twitter .column-margin user=mcxfrank status_id=1643296168276033538 }<br>
-:::</p>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-8f14c7d2906.png" class="img-fluid"></p>
+<div class="tweet">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="tweet-89272"></div><script>tweet={"url":"https:\/\/twitter.com\/mcxfrank\/status\/1643296168276033538","author_name":"Michael C. Frank","author_url":"https:\/\/twitter.com\/mcxfrank","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EPeople are testing large language models (LLMs) on their &quot;cognitive&quot; abilities - theory of mind, causality, syllogistic reasoning, etc. Many (most?) of these evaluations are deeply flawed. To evaluate LLMs effectively, we need some principles from experimental psychology.\uD83E\uDDF5 \u003Ca href=\"https:\/\/t.co\/Xlywu3gTVz\"\u003Epic.twitter.com\/Xlywu3gTVz\u003C\/a\u003E\u003C\/p\u003E&mdash; Michael C. Frank (@mcxfrank) \u003Ca href=\"https:\/\/twitter.com\/mcxfrank\/status\/1643296168276033538?ref_src=twsrc%5Etfw\"\u003EApril 4, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-89272").innerHTML = tweet["html"];</script>
+</div>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-8f14c7d2906.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-8f14c7d2906.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 <p>Let's talk about Prompt Based Experimental Design Schemas. These schemas can be thought of as templates, but with a key distinction. They not only focus on varying the input sample, but also on modifying the prompt specifications. By doing so, they allow us to closely monitor and analyze the changes that occur from one prompt to another. This approach provides a valuable way to study and understand the impact of different prompts on the overall outcome of an experiment.</p>
 </section>
 </section>
@@ -262,37 +306,77 @@ ul.task-list li input[type="checkbox"] {
 <p>Prompt Based Experimental Design Schemas can be categorized into four main categories: prompts, samples, outputs, and metadata.</p>
 <p>While the evaluation or metric design for outputs is a complex problem on its own, whether we use prompt based systems or not, in this discussion we will focus on exploring schemas for the remaining three categories: prompts, samples, and metadata.</p>
 <p>These aspects play a crucial role in shaping the experimental design and understanding the impact of different elements within the experiment.</p>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-1e5a7351c70.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-1e5a7351c70.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-1e5a7351c70.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 <p>In this case, we will refer to Sparks AGI paper and utilize the basic Theory of Mind example as our reference point.</p>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-583dc6d0606.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-583dc6d0606.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-583dc6d0606.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 <section id="prompt-definition-markup" class="level2">
 <h2 class="anchored" data-anchor-id="prompt-definition-markup">Prompt Definition Markup</h2>
 <p>Let's delve into the concept of Prompt Definition Markup. Within this framework, we identify three types of steering in a prompt: start, process, and output.</p>
 <p>Each type serves a distinct purpose. Additionally, an output steer consists of two components: instructions (including constraints and format) and options.</p>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-d9c584bb200.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-d9c584bb200.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-d9c584bb200.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 <p>To illustrate, let's consider the "Sparks of AGI" paper, which utilizes only a start steer, indicating the initial direction or guidance provided in the prompt.</p>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-7c7578cdbf5.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-7c7578cdbf5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-7c7578cdbf5.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 <p>This approach allows for a clear and structured definition of prompts, enabling effective experimentation and analysis.</p>
 <p>To enhance the prompt, we can introduce a process steer in addition to the start steer, encouraging a step-by-step approach. Furthermore, we can incorporate an output instruction steer, specifying that the response should only include the folder path and no additional information.</p>
 <p>These modifications provide additional guidance and constraints to the prompt, allowing for a more structured and controlled experimental design.</p>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-1f7053e0950.png" class="img-fluid"></p>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-9091c7d24aa.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-1f7053e0950.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-1f7053e0950.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-9091c7d24aa.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-9091c7d24aa.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 </section>
 <section id="sample-markup" class="level2">
 <h2 class="anchored" data-anchor-id="sample-markup">Sample Markup</h2>
 <p>Let's now turn our attention to Sample Markup. A sample consists of two key components: examples and input. However, if our objective is zero-shot prompting, we may not require specific examples.</p>
 <p>In cases where examples are included, they can be categorized as either positive (A1) or negative (A2) examples, providing different instances for the model to learn from. On the other hand, the input component comprises three parts: the sample itself (B1), a question (B2), and a concept (B3). These elements collectively shape the input provided to the model, allowing for a more targeted and contextualized prompt.</p>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-9300062118c.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-9300062118c.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-9300062118c.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 <p>Let's consider an example to illustrate the concept of Sample Markup. In the context of the Theory of Mind False Belief Test, there are no specific examples provided. Instead, the prompt consists of a sample, a question, and an implicit concept. We can annotate this prompt accordingly, as depicted in the accompanying picture.</p>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-a1b36107f79.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-a1b36107f79.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-a1b36107f79.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 </section>
 <section id="output-schema" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="output-schema">Output Schema</h2>
 <p>The output schema is a complex process that intersects significantly with large language model (LLM) evaluation techniques. If you're interested in delving deeper into this topic, I recommend checking out my other post. It provides further insights and information about the intricacies involved in designing and evaluating output schemas for LLMs.</p>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-2b79a1398a3.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-2b79a1398a3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-2b79a1398a3.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-4c3e4d1a18a.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-4c3e4d1a18a.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-4c3e4d1a18a.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 </div></div></section>
 <section id="metadata" class="level2">
 <h2 class="anchored" data-anchor-id="metadata">Metadata</h2>
@@ -302,7 +386,11 @@ B. Iteration<br>
 C. Variation<br>
 D. Intuition<br>
 E. Experimental Design</p>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-c6fddf51f9e.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-c6fddf51f9e.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-c6fddf51f9e.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 <section id="connectors" class="level3">
 <h3 class="anchored" data-anchor-id="connectors">Connectors</h3>
 <p>Let's delve into the concept of Connectors within the prompt-based experimental design schema. Connectors serve as internal elements within a single prompt and play a crucial role in shaping the prompt's context and implications. They can serve different purposes:</p>
@@ -310,7 +398,11 @@ E. Experimental Design</p>
 <p>A2. Negation: On the other hand, connectors can also negate certain information presented in the prompt. By negating specific details, the prompt can introduce contrasting or alternative perspectives.</p>
 <p>A3. Exception: Connectors may also be used to highlight exceptions to the information being tested or present in the prompt. These exceptions provide additional nuances and complexities to the prompt, allowing for a more comprehensive exploration of the given scenario.</p>
 <p>For instance, consider the following example: "He says nothing about this to Alice, and Dropbox also does not notify Alice." In this case, the connector reinforces the belief or statement being made, emphasizing that both the person mentioned and Dropbox do not inform Alice about a particular matter. This connector strengthens the prompt's intended message and adds clarity to the scenario being presented.</p>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-4ad1f2317ec.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-4ad1f2317ec.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-4ad1f2317ec.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 </section>
 <section id="iteration" class="level3">
 <h3 class="anchored" data-anchor-id="iteration">Iteration</h3>
@@ -332,7 +424,11 @@ E. Experimental Design</p>
 <p>C1. Implicit (Theory of Mind): The implicit intuition of the prompt revolves around the exploration of the Theory of Mind concept, which involves understanding and analyzing how individuals perceive and interpret the thoughts, beliefs, and intentions of others.</p>
 <p>C2. Explicit (Modernization -&gt; Unseen Photos Because of Online Service): The explicit intuition of the prompt focuses on the concept of modernization and its impact on individuals' access to unseen photos due to online services. It highlights the specific aspect of modernization and its influence on personal experiences.</p>
 <p>C3. Test (False Belief Test): The test intuition of the prompt centers around conducting a False Belief Test, which aims to assess individuals' understanding of false beliefs and their ability to attribute different perspectives to others.</p>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-b86b1e8fb1e.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-b86b1e8fb1e.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-b86b1e8fb1e.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 </section>
 <section id="variation" class="level3">
 <h3 class="anchored" data-anchor-id="variation">Variation</h3>
@@ -352,7 +448,11 @@ with D2. Similar Concept (Unseen Object 'Cause Sleeping)</p>
 Both GPT4 and GPT3.5 fail on this simple task<br>
 <br>
 Somehow sleep is not encoded as no knowledge transfer?</p>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-90a05f4040a.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-90a05f4040a.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-90a05f4040a.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 </section>
 <section id="experimental-design" class="level3">
 <h3 class="anchored" data-anchor-id="experimental-design">Experimental Design</h3>
@@ -367,7 +467,11 @@ Somehow sleep is not encoded as no knowledge transfer?</p>
 <p>By codifying the directionality of these variables and considering the experimental design components such as control, previous prompt, date, and model, we can establish a structured and systematic approach to prompt-based experimentation. This framework allows for clear comparisons, iterative improvements, and effective tracking of the experiment's progress and outcomes.</p>
 <p><strong>Previous Example</strong></p>
 <p>Some of these prompts have the word "expect" which is known to be ambiguous</p>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-a36a84c7076.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-a36a84c7076.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-a36a84c7076.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 <p>Let's consider an example to illustrate the importance of annotating the directionality within the experimental design. In this case, we initially believe that the model is correct and passes the false-belief test. However, upon further examination, we identify a potential issue of leakage in the prompt.</p>
 <p>The use of words such as "think" or "believe" in the prompt directly correlates with the concept of a "belief-test." This correlation can unintentionally guide the model towards the correct answer, potentially compromising the validity of the test. To address this concern, we can annotate the directionality by replacing the problematic wording with alternatives. For instance, replacing "think" with "look for" in the prompt may help mitigate the issue of leakage.</p>
 <p>By annotating the directionality and actively addressing potential biases or correlations within the prompt, we can ensure a more accurate evaluation of the model's capabilities. This approach enhances the integrity of the experiment and allows for clearer insights into the model's performance and understanding of the desired concepts.</p>
@@ -375,7 +479,11 @@ Somehow sleep is not encoded as no knowledge transfer?</p>
 <p>Using the word think or believe makes it work for GPT4, not for GPT3.5.<br>
 <br>
 Suggestions to frame it without using the explicit terms "think" "believe" which correlate to the expectation that outcome is independent of the action?</p>
-<p><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-6193491277a.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-6193491277a.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-6193491277a.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 </section>
 </section>
 </section>
@@ -656,6 +764,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <script src="https://giscus.app/client.js" data-repo="nlpurr/nlpurr.github.io" data-repo-id="R_kgDOJo8TQA" data-category="Announcements" data-category-id="DIC_kwDOJo8TQM4CW3Zf" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":true,"selector":".lightbox","openEffect":"zoom"});</script>
 
 
 
