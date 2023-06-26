@@ -66,7 +66,7 @@ Note
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="tweet-72741"></div><script>tweet={"url":"https:\/\/twitter.com\/MaartenBosma\/status\/1672349512499867648","author_name":"Maarten Bosma","author_url":"https:\/\/twitter.com\/MaartenBosma","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EGood question! PaLM used a different eval split. We have now added our results on that split as well, and we outperform PaLM by quite a margin. \u003Ca href=\"https:\/\/t.co\/mimZE8TSuB\"\u003Epic.twitter.com\/mimZE8TSuB\u003C\/a\u003E\u003C\/p\u003E&mdash; Maarten Bosma (@MaartenBosma) \u003Ca href=\"https:\/\/twitter.com\/MaartenBosma\/status\/1672349512499867648?ref_src=twsrc%5Etfw\"\u003EJune 23, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-72741").innerHTML = tweet["html"];</script>
+<div id="tweet-80252"></div><script>tweet={"url":"https:\/\/twitter.com\/MaartenBosma\/status\/1672349512499867648","author_name":"Maarten Bosma","author_url":"https:\/\/twitter.com\/MaartenBosma","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EGood question! PaLM used a different eval split. We have now added our results on that split as well, and we outperform PaLM by quite a margin. \u003Ca href=\"https:\/\/t.co\/mimZE8TSuB\"\u003Epic.twitter.com\/mimZE8TSuB\u003C\/a\u003E\u003C\/p\u003E&mdash; Maarten Bosma (@MaartenBosma) \u003Ca href=\"https:\/\/twitter.com\/MaartenBosma\/status\/1672349512499867648?ref_src=twsrc%5Etfw\"\u003EJune 23, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-80252").innerHTML = tweet["html"];</script>
 </div>
 </div>
 </div>
@@ -175,9 +175,31 @@ Human curated eval sets
 </div>
 </div>
 </div>
+<p>Fuzzy Versions — These are variants of exisiting datasets or evaluation sets, extensions or additions created with the explicit purpose of introducing and testing for model behavior in presence of such variability. This variability can be intentionally adversarial, can be aimed to introduce out of distribution tokens for robustness testing or just for the purpose of creating paraphrased equivalent samples.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Fuzzed eval sets">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Fuzzed eval sets
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-e8207fbb5dd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="For example, a set of adversarial prompts and inputs that act as addition/in replacement to the original evaluation samples, as proposed in PromptBench"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-e8207fbb5dd.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">For example, a set of adversarial prompts and inputs that act as addition/in replacement to the original evaluation samples, as proposed in <a href="https://arxiv.org/pdf/2306.04528.pdf">PromptBench</a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 <p>Ad-hoc testing samples by humans — These are performed as conversation based evaluation of these models. While they are most likely to be accurate; they are are biased by the mere idea that the human usually needs to know the solution to the problem to be able the question for evaluation purposes. This often ends up in; what I call as; <code>human imagination collapse</code> or the likelihood that an individual human would often be set on a trajectory to test for and not meaningfully diversify; at least in a single setting.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Ad-hoc testing">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -186,11 +208,11 @@ Ad-hoc testing
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-8e22f3bd0df.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Evaluating models through single turn or multi-turn conversations in OpenAssistant Conversations - Democratizing Large Language Model Alignment"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-8e22f3bd0df.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-8e22f3bd0df.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Evaluating models through single turn or multi-turn conversations in OpenAssistant Conversations - Democratizing Large Language Model Alignment"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-8e22f3bd0df.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption">Evaluating models through single turn or multi-turn conversations in <a href="https://arxiv.org/pdf/2304.07327.pdf">OpenAssistant Conversations - Democratizing Large Language Model Alignment</a></figcaption>
 </figure>
 </div>
@@ -216,7 +238,7 @@ Ad-hoc testing
 <li>Regression based model outcome does not necessarily scale and hence can change the standard deviation and mean of the regressed output. For example, if you ask a model to provide a graded rating between 0-10; you cannot with certainty scale that grading to 0-1, especially if you care about significance testing.</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled" title="Do you want to know why this is a problem with examples?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -225,56 +247,56 @@ Do you want to know why this is a problem with examples?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>Let’s take the example in <a href="https://arxiv.org/pdf/2306.11644.pdf">Textbooks are all you need</a> paper again and ask it to grade 2 responses on 3 scales.</p>
 <p>Why? Because the description says that the GPT4 model was asked to grade between 0-10, but the numbers are reported scaled between 0-1.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-38d35b72660.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="The paper saying that the model is asked for grades between 0 to 10, and that is then scaled to report between 0-1."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-38d35b72660.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-38d35b72660.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="The paper saying that the model is asked for grades between 0 to 10, and that is then scaled to report between 0-1."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-38d35b72660.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption">The paper saying that the model is asked for grades between 0 to 10, and that is then scaled to report between 0-1.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-36a1e237255.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-36a1e237255.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-36a1e237255.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-36a1e237255.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
 <p>Let’s start with the completely correct response.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-0d50e7c6848.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="The GPT4 model says the response is 9/10 when asked for a grade between 0-10."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-0d50e7c6848.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-0d50e7c6848.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="The GPT4 model says the response is 9/10 when asked for a grade between 0-10."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-0d50e7c6848.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption">The GPT4 model says the response is 9/10 when asked for a grade between 0-10.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-44ef7ec4988.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="The GPT4 model says the response is .95/10 when asked for a grade between 0-1."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-44ef7ec4988.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-44ef7ec4988.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="The GPT4 model says the response is .95/10 when asked for a grade between 0-1."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-44ef7ec4988.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption">The GPT4 model says the response is .95/10 when asked for a grade between 0-1.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-5b3c7e7a4b4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="The GPT4 model says the response is 4.5/5 when asked for a grade between 0-5; which is great, right? Because at least the scaling is consistent."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-5b3c7e7a4b4.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-5b3c7e7a4b4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="The GPT4 model says the response is 4.5/5 when asked for a grade between 0-5; which is great, right? Because at least the scaling is consistent."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-5b3c7e7a4b4.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption">The GPT4 model says the response is 4.5/5 when asked for a grade between 0-5; which is great, right? Because at least the scaling is consistent.</figcaption>
 </figure>
 </div>
 <p>But, let’s consider some other solutions, those that are incorrect in some way or another. Let’s do this by changing squaring to 2.2, and sorting the second list in reverse.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-7d63e513030.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="The GPT4 model says the response is 8/10 when asked for a grade between 0-10."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-7d63e513030.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-7d63e513030.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="The GPT4 model says the response is 8/10 when asked for a grade between 0-10."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-7d63e513030.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption">The GPT4 model says the response is 8/10 when asked for a grade between 0-10.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-88c3f3d29ff.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="The GPT4 model says the response is 4.5/5 when asked for a grade between 0-5. The scaling is constant here too!"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-88c3f3d29ff.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-88c3f3d29ff.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="The GPT4 model says the response is 4.5/5 when asked for a grade between 0-5. The scaling is constant here too!"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-88c3f3d29ff.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption">The GPT4 model says the response is 4.5/5 when asked for a grade between 0-5. The scaling is constant here too!</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-2a516565700.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="The GPT4 model says that the response is 0.9/1. And now all the scaling is messed up."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-2a516565700.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-2a516565700.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="The GPT4 model says that the response is 0.9/1. And now all the scaling is messed up."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-2a516565700.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption">The GPT4 model says that the response is 0.9/1. And now all the scaling is messed up.</figcaption>
 </figure>
 </div>
@@ -289,7 +311,7 @@ Do you want to know why this is a problem with examples?
 <h3 class="anchored" data-anchor-id="looped-transformations">Looped Transformations</h3>
 <p>Loop based transformations usually follow the philosophy of —&gt; what if we additionally add the model output + some form of evaluation of the current answer (either from the same model, another model or a human) back into the model; such that it eventually reaches the perfect outcome. Some examples of these would be Self-Critique models.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Example Papers">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -298,11 +320,11 @@ Example Papers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-ad9844c143d.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Reflexion: Language Agents with Verbal Reinforcement Learning develops a modular formulation for Reflexion, utilizing three distinct models: an Actor generates text and actions; an Evaluator model scores the outputs produced by Actor; and a Self-Reflection model, generates verbal reinforcement cues to assist the Actor in self-improvement."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-ad9844c143d.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-ad9844c143d.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="Reflexion: Language Agents with Verbal Reinforcement Learning develops a modular formulation for Reflexion, utilizing three distinct models: an Actor generates text and actions; an Evaluator model scores the outputs produced by Actor; and a Self-Reflection model, generates verbal reinforcement cues to assist the Actor in self-improvement."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-ad9844c143d.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption"><a href="https://arxiv.org/pdf/2303.11366.pdf">Reflexion: Language Agents with Verbal Reinforcement Learning</a> develops a modular formulation for Reflexion, utilizing three distinct models: an Actor generates text and actions; an Evaluator model scores the outputs produced by Actor; and a Self-Reflection model, generates verbal reinforcement cues to assist the Actor in self-improvement.</figcaption>
 </figure>
 </div>
@@ -340,7 +362,7 @@ Example Papers
 <section id="direct-evaluation-metrics" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="direct-evaluation-metrics">Direct Evaluation Metrics</h3>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Example Papers">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -349,11 +371,11 @@ Example Papers
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-d9a5f74b47b.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="Textbooks are all you needevaluation with HumanEval and MBPP"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-d9a5f74b47b.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-d9a5f74b47b.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="Textbooks are all you needevaluation with HumanEval and MBPP"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-d9a5f74b47b.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption"><a href="https://arxiv.org/pdf/2306.11644.pdf">Textbooks are all you need</a>evaluation with HumanEval and MBPP</figcaption>
 </figure>
 </div>
@@ -374,53 +396,6 @@ Example Papers
 <section id="indirect-or-decomposed-model-based-evaluation" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="indirect-or-decomposed-model-based-evaluation">Indirect or Decomposed Model-Based Evaluation</h3>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Example Papers">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Example Papers
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-384f6f3ee9b.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="Rubric based from the same model. TinyStories: How Small Can Language Models Be and Still Speak Coherent English?"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-384f6f3ee9b.png" class="img-fluid figure-img"></a></p>
-<figcaption class="figure-caption">Rubric based from the same model.<br>
-<a href="https://arxiv.org/pdf/2305.07759.pdf">TinyStories: How Small Can Language Models Be and Still Speak Coherent English?</a></figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-e6235ebb710.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="Self-critiquing models for assisting human evaluators"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-e6235ebb710.png" class="img-fluid figure-img"></a></p>
-<figcaption class="figure-caption"><a href="https://arxiv.org/pdf/2206.05802.pdf">Self-critiquing models for assisting human evaluators</a></figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-fd37f2d1713.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="G-EVAL: NLG Evaluation using GPT-4 with Better Human Alignment using form-filling methods for evaluation and then calculate a correlation to human preference."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-fd37f2d1713.png" class="img-fluid figure-img"></a></p>
-<figcaption class="figure-caption"><a href="https://arxiv.org/pdf/2303.16634.pdf">G-EVAL: NLG Evaluation using GPT-4 with Better Human Alignment</a> using form-filling methods for evaluation and then calculate a correlation to human preference.</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-bc49bad86e9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="Component-wise model driven evaluation scores in LLM-EVAL: Unified Multi-Dimensional Automatic Evaluation for Open-Domain Conversations with Large Language Models"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-bc49bad86e9.png" class="img-fluid figure-img"></a></p>
-<figcaption class="figure-caption">Component-wise model driven evaluation scores in <a href="https://arxiv.org/pdf/2305.13711.pdf">LLM-EVAL: Unified Multi-Dimensional Automatic Evaluation for Open-Domain Conversations with Large Language Models</a></figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>Moving on to the second category, we have "indirect or decomposed heuristics." Here, we utilize smaller models, whether they are fine-tuned or raw decompositions, to evaluate the answers generated by the main model. The idea is to leverage these smaller models, which excel at specific tasks that large language models are generally good at, such as adjective identification or polarity identification. The outputs of these smaller models act as weak scores that are combined to provide a final label or evaluation for the generated output. This indirect evaluation approach allows for a more nuanced assessment of the model's performance, particularly in areas like the likability of prose. Although these models introduce some variability, it's important to note that they are often trained for regression tasks and fine-tuned for specific purposes.</p>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<p>Honestly, the line between this method of evaluation and the next is blurry, especially in terms of impact and possibility of being wrong. Suggestions for better ontology are welcome!</p>
-</div></div></section>
-<section id="model-driven-evaluation" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="model-driven-evaluation">Model-Driven Evaluation</h3>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Example Papers">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -434,31 +409,78 @@ Example Papers
 <div class="callout-body-container callout-body">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-b297c918d95.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="Evaluating responses by comparing to referenced ground truth in Sparks of AGI. Remember this is inclusion of ground truth and possibly the least problematic form of model driven evaluation."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-b297c918d95.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-384f6f3ee9b.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="Rubric based from the same model. TinyStories: How Small Can Language Models Be and Still Speak Coherent English?"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-384f6f3ee9b.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">Rubric based from the same model.<br>
+<a href="https://arxiv.org/pdf/2305.07759.pdf">TinyStories: How Small Can Language Models Be and Still Speak Coherent English?</a></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-e6235ebb710.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="Self-critiquing models for assisting human evaluators"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-e6235ebb710.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption"><a href="https://arxiv.org/pdf/2206.05802.pdf">Self-critiquing models for assisting human evaluators</a></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-fd37f2d1713.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="G-EVAL: NLG Evaluation using GPT-4 with Better Human Alignment using form-filling methods for evaluation and then calculate a correlation to human preference."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-fd37f2d1713.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption"><a href="https://arxiv.org/pdf/2303.16634.pdf">G-EVAL: NLG Evaluation using GPT-4 with Better Human Alignment</a> using form-filling methods for evaluation and then calculate a correlation to human preference.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-bc49bad86e9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="Component-wise model driven evaluation scores in LLM-EVAL: Unified Multi-Dimensional Automatic Evaluation for Open-Domain Conversations with Large Language Models"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-bc49bad86e9.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">Component-wise model driven evaluation scores in <a href="https://arxiv.org/pdf/2305.13711.pdf">LLM-EVAL: Unified Multi-Dimensional Automatic Evaluation for Open-Domain Conversations with Large Language Models</a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Moving on to the second category, we have "indirect or decomposed heuristics." Here, we utilize smaller models, whether they are fine-tuned or raw decompositions, to evaluate the answers generated by the main model. The idea is to leverage these smaller models, which excel at specific tasks that large language models are generally good at, such as adjective identification or polarity identification. The outputs of these smaller models act as weak scores that are combined to provide a final label or evaluation for the generated output. This indirect evaluation approach allows for a more nuanced assessment of the model's performance, particularly in areas like the likability of prose. Although these models introduce some variability, it's important to note that they are often trained for regression tasks and fine-tuned for specific purposes.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Honestly, the line between this method of evaluation and the next is blurry, especially in terms of impact and possibility of being wrong. Suggestions for better ontology are welcome!</p>
+</div></div></section>
+<section id="model-driven-evaluation" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="model-driven-evaluation">Model-Driven Evaluation</h3>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Papers">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Papers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-b297c918d95.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27" title="Evaluating responses by comparing to referenced ground truth in Sparks of AGI. Remember this is inclusion of ground truth and possibly the least problematic form of model driven evaluation."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-b297c918d95.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption">Evaluating responses by comparing to referenced ground truth in <a href="https://arxiv.org/pdf/2303.12712.pdf">Sparks of AGI</a>. Remember this is inclusion of ground truth and possibly the least problematic form of model driven evaluation.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-594e8bc80cb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27" title="Bring Your Own Data! Self-Supervised Evaluation forLarge Language Models evaluation based on invariance of model output based on fuzzed input samples"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-594e8bc80cb.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-594e8bc80cb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28" title="Bring Your Own Data! Self-Supervised Evaluation forLarge Language Models evaluation based on invariance of model output based on fuzzed input samples"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-594e8bc80cb.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption"><a href="https://arxiv.org/pdf/2306.13651.pdf">Bring Your Own Data! Self-Supervised Evaluation forLarge Language Models</a> evaluation based on invariance of model output based on fuzzed input samples</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-62202ec9cb6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28" title="Textbooks are all you needevaluation with GPT4"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-62202ec9cb6.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-62202ec9cb6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29" title="Textbooks are all you needevaluation with GPT4"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-62202ec9cb6.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption"><a href="https://arxiv.org/pdf/2306.11644.pdf">Textbooks are all you need</a>evaluation with GPT4</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-5f2ae4973f3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29" title="Using LLMs for explanations of smaller LLMs"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-5f2ae4973f3.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-5f2ae4973f3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30" title="Using LLMs for explanations of smaller LLMs"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-5f2ae4973f3.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption"><a href="https://openai.com/research/language-models-can-explain-neurons-in-language-models">Using LLMs for explanations of smaller LLMs</a></figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-d2af74360dd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30" title="Ask the AI section from Language Models (Mostly) Know What They Know"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-d2af74360dd.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-d2af74360dd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-31" title="Ask the AI section from Language Models (Mostly) Know What They Know"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-d2af74360dd.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption">Ask the AI section from <a href="https://arxiv.org/pdf/2207.05221.pdf">Language Models (Mostly) Know What They Know</a></figcaption>
 </figure>
 </div>
@@ -476,7 +498,7 @@ Example Papers
 <p>For example, this is why the authors of <a href="https://arxiv.org/abs/2306.11644">Textbooks are all you need</a> believe this is a correct method of evaluation.</p>
 <div class="tweet">
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -485,15 +507,15 @@ Note
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="tweet-56303"></div><script>tweet={"url":"https:\/\/twitter.com\/EldanRonen\/status\/1673107981742010370","author_name":"Ronen Eldan","author_url":"https:\/\/twitter.com\/EldanRonen","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EThere&#39;s a reason that in coding exams\/interviews, grades are not only based on whether the code passes unit tests, but rather a human reads through the code and determines the level of understanding reflected from it.\u003C\/p\u003E&mdash; Ronen Eldan (@EldanRonen) \u003Ca href=\"https:\/\/twitter.com\/EldanRonen\/status\/1673107981742010370?ref_src=twsrc%5Etfw\"\u003EJune 25, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-56303").innerHTML = tweet["html"];</script>
+<div id="tweet-62753"></div><script>tweet={"url":"https:\/\/twitter.com\/EldanRonen\/status\/1673107981742010370","author_name":"Ronen Eldan","author_url":"https:\/\/twitter.com\/EldanRonen","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EThere&#39;s a reason that in coding exams\/interviews, grades are not only based on whether the code passes unit tests, but rather a human reads through the code and determines the level of understanding reflected from it.\u003C\/p\u003E&mdash; Ronen Eldan (@EldanRonen) \u003Ca href=\"https:\/\/twitter.com\/EldanRonen\/status\/1673107981742010370?ref_src=twsrc%5Etfw\"\u003EJune 25, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-62753").innerHTML = tweet["html"];</script>
 </div>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Detailed account of why I believe that using GPT-4 as a judge is incorrect in this case">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -502,7 +524,7 @@ Detailed account of why I believe that using GPT-4 as a judge is incorrect in th
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse show">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>But this, in my opinion, is not a correct way to account for non-binary labels. Especially in coding, when there is an existing method to run the function through tests and have assertions against expected answers. My judgement might have been different had this evaluation method been proposed for a subjective task, but coding, is both, an objective and assertable task, and this evaluation method discards all these properties of a coding task in general.</p>
 <p>Let’s break this down:</p>
@@ -531,17 +553,17 @@ font-style: inherit;">"""</span></span></code></pre></div>
 <p>Doesn’t GPT4 as a judge solve these problems anyway? No, no it does not.</p>
 <p>Why not?</p>
 <ul>
-<li><p>The method does not provide the exact same number every single time. For example, let’s consider the same doc string as mentioned above. And let’s evaluate how good Mosaic 30B-Chat is good at programming. <a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-05b010e3aee.png" class="lightbox" data-gallery="quarto-lightbox-gallery-32"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-05b010e3aee.png" class="img-fluid"></a></p>
+<li><p>The method does not provide the exact same number every single time. For example, let’s consider the same doc string as mentioned above. And let’s evaluate how good Mosaic 30B-Chat is good at programming. <a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-05b010e3aee.png" class="lightbox" data-gallery="quarto-lightbox-gallery-33"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-05b010e3aee.png" class="img-fluid"></a></p>
 <p>Now, let us ask GPT4 to judge this. Not only does the answer change, the model suggests to do something that was not even asked for.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-a330cd6b0c2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-33" title="The model scores it 9.5/10"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-a330cd6b0c2.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-a330cd6b0c2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-34" title="The model scores it 9.5/10"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-a330cd6b0c2.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption">The model scores it 9.5/10</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-0ebbca38746.png" class="lightbox" data-gallery="quarto-lightbox-gallery-34" title="The model scores it 9/10"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-0ebbca38746.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-0ebbca38746.png" class="lightbox" data-gallery="quarto-lightbox-gallery-35" title="The model scores it 9/10"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-0ebbca38746.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption">The model scores it 9/10</figcaption>
 </figure>
 </div></li>
@@ -557,21 +579,21 @@ font-style: inherit;">"""</span></span></code></pre></div>
 <p>GPT4 judges it to be 4/10. And, it does not see that the threshold value was changed.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-37b899bb621.png" class="lightbox" data-gallery="quarto-lightbox-gallery-35" title="The model scores the completely incorrect function at 4/10. It ignores an error. In the previous pictures, it creates an error or a suggestion which was not asked for and will render the code incorrect."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-37b899bb621.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-37b899bb621.png" class="lightbox" data-gallery="quarto-lightbox-gallery-36" title="The model scores the completely incorrect function at 4/10. It ignores an error. In the previous pictures, it creates an error or a suggestion which was not asked for and will render the code incorrect."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-37b899bb621.png" class="img-fluid figure-img"></a></p>
 <figcaption class="figure-caption">The model scores the completely incorrect function at 4/10. It ignores an error. In the previous pictures, it creates an error or a suggestion which was not asked for and will render the code incorrect.</figcaption>
 </figure>
 </div></li>
-<li><p>Anything weird to the model, that is not in the general expected distribution will be marked low. For example, here is a correct code that is marked lower just because it is unexpected by GPT4. <a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-de21fe993b3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-36" title="Model invents a requirement that does not exist, writes incorrect code and grades the correct code 8.5/10."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-de21fe993b3.png" class="img-fluid" alt="Model invents a requirement that does not exist, writes incorrect code and grades the correct code 8.5/10."></a></p></li>
+<li><p>Anything weird to the model, that is not in the general expected distribution will be marked low. For example, here is a correct code that is marked lower just because it is unexpected by GPT4. <a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-de21fe993b3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-37" title="Model invents a requirement that does not exist, writes incorrect code and grades the correct code 8.5/10."><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-de21fe993b3.png" class="img-fluid" alt="Model invents a requirement that does not exist, writes incorrect code and grades the correct code 8.5/10."></a></p></li>
 </ul>
 <p>Now a retort might be: But you made those changes, the model did not produce that outcome! The model will always generate outcomes in the distribution!</p>
 <p>Fair! But (a) that de-incentivizes training of new models that are have better coverage; and; (b) there is no way someone won’t read that paper and consider — let’s create an LLM based service that proposes to judge interviewees based on LLM scoring.</p>
 </div>
 </div>
 </div>
-<div class="no-row-height column-margin column-container"><div class="callout-12-contents callout-collapse collapse show callout-margin-content">
+<div class="no-row-height column-margin column-container"><div class="callout-13-contents callout-collapse collapse show callout-margin-content">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-16699c3485b.png" class="lightbox" data-gallery="quarto-lightbox-gallery-31"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-16699c3485b.png" class="img-fluid figure-img"></a></p>
+<p><a href="images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-16699c3485b.png" class="lightbox" data-gallery="quarto-lightbox-gallery-32"><img src="https://nlpurr.github.io/posts/images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-16699c3485b.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
 </div></div></section>
@@ -609,7 +631,7 @@ font-style: inherit;">"""</span></span></code></pre></div>
 </div></div><p>Lastly, we must address the concept of prompt-fine tuning. Numerous research papers present results on the test set by identifying the best prompt for a given task. While this approach may seem reasonable in theory, it fails to provide a reliable measure of the model's performance when it comes to solving real-world problems encountered by average users. If the intention is to use the prompt as an auxiliary component in a pipeline, then finding the optimal prompt for the task and model is acceptable. However, for direct user-facing end-to-end models, it is crucial to acknowledge that the best prompt for obtaining the correct answer may not be realistic or feasible for all users, especially in the case of general-purpose models.</p>
 <div class="tweet">
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -618,9 +640,9 @@ Note
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="tweet-83710"></div><script>tweet={"url":"https:\/\/twitter.com\/ArmenAgha\/status\/1669098472493162497","author_name":"Armen Aghajanyan","author_url":"https:\/\/twitter.com\/ArmenAgha","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E1. Manually annotate 1k fuzzing prompts\u003Cbr\u003E2. Finetune LLaMa on this 1k a la LIMA\u003Cbr\u003E3. Apply fuzzing to standard benchmarks\u003Cbr\u003E4. Re-evaluate common models?\u003Cbr\u003E\u003Cbr\u003ELikely this will work, not sure if anyone has done this.\u003C\/p\u003E&mdash; Armen Aghajanyan (@ArmenAgha) \u003Ca href=\"https:\/\/twitter.com\/ArmenAgha\/status\/1669098472493162497?ref_src=twsrc%5Etfw\"\u003EJune 14, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-83710").innerHTML = tweet["html"];</script>
+<div id="tweet-42982"></div><script>tweet={"url":"https:\/\/twitter.com\/ArmenAgha\/status\/1669098472493162497","author_name":"Armen Aghajanyan","author_url":"https:\/\/twitter.com\/ArmenAgha","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E1. Manually annotate 1k fuzzing prompts\u003Cbr\u003E2. Finetune LLaMa on this 1k a la LIMA\u003Cbr\u003E3. Apply fuzzing to standard benchmarks\u003Cbr\u003E4. Re-evaluate common models?\u003Cbr\u003E\u003Cbr\u003ELikely this will work, not sure if anyone has done this.\u003C\/p\u003E&mdash; Armen Aghajanyan (@ArmenAgha) \u003Ca href=\"https:\/\/twitter.com\/ArmenAgha\/status\/1669098472493162497?ref_src=twsrc%5Etfw\"\u003EJune 14, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-42982").innerHTML = tweet["html"];</script>
 </div>
 </div>
 </div>
@@ -645,7 +667,7 @@ Note
 </blockquote>
 <div class="youtube">
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -654,7 +676,7 @@ Note
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="youtube-frame" style="position: relative; padding-bottom: 56.25%; /* 16:9 */ height: 0;"><iframe width="100%" height="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/oTn_bP-nYv4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
@@ -746,7 +768,7 @@ Note
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="tweet-84497"></div><script>tweet={"url":"https:\/\/twitter.com\/mcxfrank\/status\/1643296168276033538","author_name":"Michael C. Frank","author_url":"https:\/\/twitter.com\/mcxfrank","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EPeople are testing large language models (LLMs) on their &quot;cognitive&quot; abilities - theory of mind, causality, syllogistic reasoning, etc. Many (most?) of these evaluations are deeply flawed. To evaluate LLMs effectively, we need some principles from experimental psychology.\uD83E\uDDF5 \u003Ca href=\"https:\/\/t.co\/Xlywu3gTVz\"\u003Epic.twitter.com\/Xlywu3gTVz\u003C\/a\u003E\u003C\/p\u003E&mdash; Michael C. Frank (@mcxfrank) \u003Ca href=\"https:\/\/twitter.com\/mcxfrank\/status\/1643296168276033538?ref_src=twsrc%5Etfw\"\u003EApril 4, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-84497").innerHTML = tweet["html"];</script>
+<div id="tweet-86404"></div><script>tweet={"url":"https:\/\/twitter.com\/mcxfrank\/status\/1643296168276033538","author_name":"Michael C. Frank","author_url":"https:\/\/twitter.com\/mcxfrank","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EPeople are testing large language models (LLMs) on their &quot;cognitive&quot; abilities - theory of mind, causality, syllogistic reasoning, etc. Many (most?) of these evaluations are deeply flawed. To evaluate LLMs effectively, we need some principles from experimental psychology.\uD83E\uDDF5 \u003Ca href=\"https:\/\/t.co\/Xlywu3gTVz\"\u003Epic.twitter.com\/Xlywu3gTVz\u003C\/a\u003E\u003C\/p\u003E&mdash; Michael C. Frank (@mcxfrank) \u003Ca href=\"https:\/\/twitter.com\/mcxfrank\/status\/1643296168276033538?ref_src=twsrc%5Etfw\"\u003EApril 4, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-86404").innerHTML = tweet["html"];</script>
 </div>
 </div>
 </div>
