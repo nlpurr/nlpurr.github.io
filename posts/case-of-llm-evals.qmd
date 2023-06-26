@@ -346,6 +346,9 @@ Why not?
 -   Anything weird to the model, that is not in the general expected distribution will be marked low. For example, here is a correct code that is marked lower just because it is unexpected by GPT4.
     ![Model invents a requirement that does not exist, writes incorrect code and grades the correct code 8.5/10.](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-de21fe993b3.png)
 
+Now a retort might be: But you made those changes, the model did not produce that outcome! The model will always generate outcomes in the distribution!
+
+Fair! But (a) that de-incentivizes training of new models that are have better coverage; and; (b) there is no way someone won’t read that paper and consider — let’s create an LLM based service that proposes to judge interviewees based on LLM scoring.
 :::
 
 ## Performance Report
