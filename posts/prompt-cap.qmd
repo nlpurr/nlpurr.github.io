@@ -289,6 +289,10 @@ This prompt-based experimental design schema is a work in progress and welcomes 
 
 [Demonstrate-Search-Predict: Composing retrieval and language models for knowledge-intensive NLP](https://arxiv.org/abs/2212.14024)
 
+[PromptBench: Towards Evaluating the Robustness of Large Language Models on Adversarial Prompts](https://arxiv.org/abs/2306.04528)
+
+[Guidance: Control modern language models more effectively and efficiently than traditional prompting or chaining](https://github.com/microsoft/guidance)
+
 ### Dataset Cartography
 
 [Learning from Others' Mistakes: Avoiding Dataset Biases without Modeling Them](https://arxiv.org/abs/2012.01300)
