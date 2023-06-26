@@ -114,7 +114,7 @@ Web scraped evaluation sets for ML model testing --- These datasets are created 
 
 Human created and curated evaluation sets for the sole purpose of evaluating a task --- These test sets are usually designed as a measure against data leakage. After all, humans can probably create a distinct enough pattern to evaluate against. While that is a pro, these datasets come with flaws of their own; for example they are really small and, are harder to create and update.
 
-::: {.callout-tip title="Human curated eval sets" collapse=true}
+::: {.callout-tip title="Human curated eval sets" icon=false collapse=true}
 
 ![HumanEval dataset proposed in E[valuating Large Language Models Trained on Code](https://arxiv.org/abs/2107.03374)](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-d4c26694437.png)
 
@@ -393,3 +393,10 @@ Lastly, we must address the concept of prompt-fine tuning. Numerous research pap
 In the realm of evaluating language models (LLMs), we find ourselves grappling with intricate questions about the reliability of our assessments. The truth is, evaluation and benchmarking have always been challenging, and the advent of large, multi-purpose models has only compounded the complexities. Issues such as data leakage, coverage limitations, spurious correlations, and partitioning quandaries plague our evaluation practices. To make matters worse, precision vs. recall tradeoffs and the lack of ground truth further muddy the waters. This post explores the common problems with evaluation in machine learning and delves into the specific challenges posed by LLMs. We categorize evaluation mediums into direct metrics, auxiliary models-based evaluation, and model-driven evaluation, shedding light on the nuances of each approach. With a cautious eye, we navigate the intricacies of reporting performance numbers and emphasize the importance of granularity. Prompt-fine tuning is also scrutinized, reminding us to consider the realism of user interactions. As we venture deeper into the evaluation landscape, it becomes clear that a comprehensive understanding of these complexities is essential for meaningful assessments of LLMs.
 
 > Our modeling, scaling and generalization techniques grew faster than our benchmarking abilities --- which in turn have resulted in poor evaluation and hyped capabilities. Every ability is amazing and great, if we do not have the tools to figure out what that ability is, or how good the model is at that ability. We'd always believe the model will win every race, if all we do, is have the race on paved roads, with yellow trees on every right turns, and green trees on every left turn.
+
+# Reference Material {#reference-material}
+
+> In progress, and definitely not a comprehensive list of everything
+
+::: {.youtube video_id=oTn_bP-nYv4}
+:::
