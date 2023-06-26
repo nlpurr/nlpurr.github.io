@@ -7,7 +7,7 @@ categories:
 - Foundation Models
 citation-location: margin
 date: '2023-06-25'
-description: ''
+description: 'Our modeling, scaling and generalization techniques grew faster than our benchmarking abilities - which in turn have resulted in poor evaluation and hyped capabilities. Every ability is amazing and great, if we do not have the tools to figure out what that ability is, or how good the model is at that ability. We might always believe the model will win every race, if all we do, is have the race on paved roads, with yellow trees on every right turns, and green trees on every left turn.'
 display-date: 'Jun 2023'
 filters:
 - collapse-social-embeds

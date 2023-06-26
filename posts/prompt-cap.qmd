@@ -7,7 +7,7 @@ categories:
 - Foundation Models
 citation-location: margin
 date: '2023-04-26'
-description: ''
+description: 'LLMs need to be trained and tested on different datasets and prompts to improve functionality and accuracy. In addition, versioning is important when assessing LLMs. Iterating on the prompts and datasets can produce better results. However, keeping different versions of both prompts and datasets can help identify which changes led to improvements in performance. All these practices should be followed to effectively evaluate and improve LLMs.'
 display-date: 'Apr 2023'
 format: html
 reference-location: margin
@@ -20,7 +20,7 @@ lightbox: auto
 ---
 # Introduction
 
-\"LLMs\", or Language Models, need to be trained and tested on different datasets and prompts to improve functionality and accuracy. In addition, versioning is important when assessing LLMs. Iterating on the prompts and datasets can produce better results. However, keeping different versions of both prompts and datasets can help identify which changes in the model\'s performance led to improvements. All these practices should be followed to effectively evaluate and improve LLMs.
+\"LLMs\", or Language Models, need to be trained and tested on different datasets and prompts to improve functionality and accuracy. In addition, versioning is important when assessing LLMs. Iterating on the prompts and datasets can produce better results. However, keeping different versions of both prompts and datasets can help identify which changes led to improvements in performance. All these practices should be followed to effectively evaluate and improve LLMs.
 
 ![](images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-4ea3c09cf3d.png)
 
