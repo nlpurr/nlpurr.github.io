@@ -72,7 +72,7 @@ While many people are content with reporting accuracy results, it has been well 
 
 There have been many decisions of removing or keeping data, that have existed across the existence of machine learning. In audio, many numbers are reported by discarding data samples that are under a certain length because they might not constitute as utterances. Knowing and explaining those thresholds is not only important for paper review or discussion but also for replication.
 
-# Issues with Evaluation wrt LLMs
+# Components of Evaluation wrt LLMs
 
 Now that we have that information, let's talk about the components of LLM evaluation. You can breakdown any LLM evaluation into 6 components:
 
@@ -98,13 +98,17 @@ Using the similar set of datasets for evaluation come with a another set of prob
 
 Pre-curated evaluation sets from various standardized tests --- These are mostly designed to be differentiating for humans and not for models. Additionally, they can have memorization based questions, that can incorrectly be inferred as understanding in context of evaluating LLMs.
 
-::: {.callout-tip title="Pre-curated eval sets" collapse=true}
+::: {.callout-tip title="Pre-curated eval sets" icon=false collapse=true}
+
+![[What Disease does this Patient Have? A Large-scale Open Domain Question Answering Dataset from ](https://arxiv.org/pdf/2009.13081v1.pdf)[**Medical Exams**](https://arxiv.org/pdf/2009.13081v1.pdf)](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-28995f49bbb.png)
 
 :::
 
 Web scraped evaluation sets for ML model testing --- These datasets are created by scraping the internet for particular tags and using the corresponding tag as the label for the sample itself or are annotated by various human annotators. The samples from these datasets are most likely to be present in the training set of these foundation models itself and hence, it is often not a good idea to just rely on these for evaluation.
 
-::: {.callout-tip title="Scraped eval sets" collapse=true}
+::: {.callout-tip title="Scraped eval sets" icon=false collapse=true}
+
+![[TriviaQA: A Large Scale Distantly Supervised Challenge Dataset for Reading Comprehension](https://arxiv.org/pdf/1705.03551.pdf)](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-a2d821fedcb.png)
 
 :::
 
@@ -112,13 +116,15 @@ Human created and curated evaluation sets for the sole purpose of evaluating a t
 
 ::: {.callout-tip title="Human curated eval sets" collapse=true}
 
--   [HumanEval](https://arxiv.org/abs/2107.03374)
+![HumanEval dataset proposed in E[valuating Large Language Models Trained on Code](https://arxiv.org/abs/2107.03374)](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-d4c26694437.png)
 
 :::
 
 Ad-hoc testing samples by humans --- These are performed as conversation based evaluation of these models. While they are most likely to be accurate; they are are biased by the mere idea that the human usually needs to know the solution to the problem to be able the question for evaluation purposes. This often ends up in; what I call as; `human imagination collapse` or the likelihood that an individual human would often be set on a trajectory to test for and not meaningfully diversify; at least in a single setting.
 
-::: {.callout-tip title="Ad-hoc testing" collapse=true}
+::: {.callout-tip title="Ad-hoc testing" icon=false collapse=true}
+
+![Evaluating models through single turn or multi-turn conversations in [OpenAssistant Conversations - Democratizing Large Language Model Alignment](https://arxiv.org/pdf/2304.07327.pdf)](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-8e22f3bd0df.png)
 
 :::
 
@@ -137,7 +143,7 @@ Now let us come to the second problem --- output from generative models.
     Another example: asking a model for a direct output and extracting the answer can lead to a different answer than in the multiple-choice scenario.
 -   Regression based model outcome does not necessarily scale and hence can change the standard deviation and mean of the regressed output. For example, if you ask a model to provide a graded rating between 0-10; you cannot with certainty scale that grading to 0-1, especially if you care about significance testing.
 
-:::{.callout-tip collapse=\"true\" title="Do you want to know why this is a problem with examples?"}
+:::{.callout-note title="Do you want to know why this is a problem with examples?" collapse=\"true\"}
 
 Let's take the example in [Textbooks are all you need](https://arxiv.org/pdf/2306.11644.pdf) paper again and ask it to grade 2 responses on 3 scales.
 
@@ -173,7 +179,7 @@ There are many transformations applied to model outputs or their inputs. These c
 
 Loop based transformations usually follow the philosophy of ---\> what if we additionally add the model output + some form of evaluation of the current answer (either from the same model, another model or a human) back into the model; such that it eventually reaches the perfect outcome. Some examples of these would be Self-Critique models.
 
-::: {.callout-tip title="Example Papers" collapse=true}
+::: {.callout-tip title="Example Papers" icon=false collapse=true}
 
 ![[Reflexion: Language Agents with Verbal Reinforcement Learning](https://arxiv.org/pdf/2303.11366.pdf) develops a modular formulation for Reflexion, utilizing three distinct models: an Actor generates text and actions; an Evaluator model scores the outputs produced by Actor; and a Self-Reflection model, generates verbal reinforcement cues to assist the Actor in self-improvement.](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-ad9844c143d.png)
 
@@ -209,7 +215,7 @@ In my perspective, the evaluation medium can be categorized into three distinct 
 
 ### Direct Evaluation Metrics
 
-::: {.callout-tip title="Example Papers" collapse=true}
+::: {.callout-tip title="Example Papers" icon=false collapse=true}
 
 ![[Textbooks are all you need ](https://arxiv.org/pdf/2306.11644.pdf)evaluation with HumanEval and MBPP](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-d9a5f74b47b.png)
 
@@ -225,9 +231,9 @@ For instance, one direct evaluation metric is comparing the model\'s accuracy di
 
 :::
 
-### Indirect Model-Based Evaluation
+### Indirect or Decomposed Model-Based Evaluation
 
-::: {.callout-tip title="Example Papers" collapse=true}
+::: {.callout-tip title="Example Papers" icon=false collapse=true}
 
 ![Rubric based from the same model.\
 [TinyStories: How Small Can Language Models Be and Still Speak Coherent English?](https://arxiv.org/pdf/2305.07759.pdf)](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-384f6f3ee9b.png)
@@ -236,13 +242,21 @@ For instance, one direct evaluation metric is comparing the model\'s accuracy di
 
 ![[G-EVAL: NLG Evaluation using GPT-4 with Better Human Alignment](https://arxiv.org/pdf/2303.16634.pdf) using form-filling methods for evaluation and then calculate a correlation to human preference.](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-fd37f2d1713.png)
 
+![Component-wise model driven evaluation scores in [LLM-EVAL: Unified Multi-Dimensional Automatic Evaluation for Open-Domain Conversations with Large Language Models](https://arxiv.org/pdf/2305.13711.pdf)](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-bc49bad86e9.png)
+
 :::
 
-Moving on to the second category, we have \"indirect heuristics.\" Here, we utilize smaller models, whether they are fine-tuned or raw decompositions, to evaluate the answers generated by the main model. The idea is to leverage these smaller models, which excel at specific tasks that large language models are generally good at, such as adjective identification or polarity identification. The outputs of these smaller models act as weak scores that are combined to provide a final label or evaluation for the generated output. This indirect evaluation approach allows for a more nuanced assessment of the model\'s performance, particularly in areas like the likability of prose. Although these models introduce some variability, it\'s important to note that they are often trained for regression tasks and fine-tuned for specific purposes.
+Moving on to the second category, we have \"indirect or decomposed heuristics.\" Here, we utilize smaller models, whether they are fine-tuned or raw decompositions, to evaluate the answers generated by the main model. The idea is to leverage these smaller models, which excel at specific tasks that large language models are generally good at, such as adjective identification or polarity identification. The outputs of these smaller models act as weak scores that are combined to provide a final label or evaluation for the generated output. This indirect evaluation approach allows for a more nuanced assessment of the model\'s performance, particularly in areas like the likability of prose. Although these models introduce some variability, it\'s important to note that they are often trained for regression tasks and fine-tuned for specific purposes.
+
+::: {.column-margin}
+
+Honestly, the line between this method of evaluation and the next is blurry, especially in terms of impact and possibility of being wrong. Suggestions for better ontology are welcome!
+
+:::
 
 ### Model-Driven Evaluation
 
-::: {.callout-tip title="Papers" collapse=true}
+::: {.callout-tip title="Example Papers" icon=false collapse=true}
 
 ![Evaluating responses by comparing to referenced ground truth in [Sparks of AGI](https://arxiv.org/pdf/2303.12712.pdf). Remember this is inclusion of ground truth and possibly the least problematic form of model driven evaluation.](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-b297c918d95.png)
 
@@ -274,7 +288,7 @@ For example, this is why the authors of [Textbooks are all you need](https://arx
 
 :::
 
-::: {.callout-tip collapse=\"true\" title="Detailed account of why I believe that using GPT-4 as a judge is incorrect in this case"}
+::: {.callout-note title="Detailed account of why I believe that using GPT-4 as a judge is incorrect in this case" collapse=\"true\" }
 
 But this, in my opinion, is not a correct way to account for non-binary labels. Especially in coding, when there is an existing method to run the function through tests and have assertions against expected answers. My judgement might have been different had this evaluation method been proposed for a subjective task, but coding, is both, an objective and assertable task, and this evaluation method discards all these properties of a coding task in general.
 
@@ -313,7 +327,7 @@ Why not?
 -   The method does not provide the exact same number every single time. For example, let's consider the same doc string as mentioned above. And let's evaluate how good Mosaic 30B-Chat is good at programming.
     ![](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-05b010e3aee.png)
 
-    Now, let us ask GPT4 to judge this. Not only the answer changes, the model suggests to do something that was not even asked for.
+    Now, let us ask GPT4 to judge this. Not only does the answer change, the model suggests to do something that was not even asked for.
 
     ![The model scores it 9.5/10](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-a330cd6b0c2.png)
 
