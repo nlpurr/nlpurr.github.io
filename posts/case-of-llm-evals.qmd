@@ -7,7 +7,7 @@ categories:
 - Foundation Models
 citation-location: margin
 date: '2023-06-25'
-description: 'Our modeling, scaling and generalization techniques grew faster than our benchmarking abilities - which in turn have resulted in poor evaluation and hyped capabilities. Every ability is amazing and great, if we do not have the tools to figure out what that ability is, or how good the model is at that ability. We might always believe the model will win every race, if all we do, is have the race on paved roads, with yellow trees on every right turns, and green trees on every left turn.'
+description: "Our modeling, scaling and generalization techniques grew faster than our benchmarking abilities - which in turn have resulted in poor evaluation and hyped capabilities. Every ability is amazing and great, if we do not have the tools to figure out what that ability is, or how good the model is at that ability. We might always believe the model will win every race, if all we do, is have the race on paved roads, with yellow trees on every right turns, and green trees on every left turn."
 display-date: 'Jun 2023'
 filters:
 - collapse-social-embeds
@@ -117,6 +117,15 @@ Human created and curated evaluation sets for the sole purpose of evaluating a t
 ::: {.callout-tip title="Human curated eval sets" icon=false collapse=true}
 
 ![HumanEval dataset proposed in E[valuating Large Language Models Trained on Code](https://arxiv.org/abs/2107.03374)](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-d4c26694437.png)
+
+:::
+
+Fuzzy Versions --- These are variants of exisiting datasets or evaluation sets, extensions or additions created with the explicit purpose of introducing and testing for model behavior in presence of such variability. This variability can be intentionally adversarial, can be aimed to introduce out of distribution tokens for robustness testing or just for the purpose of creating paraphrased equivalent samples.
+
+
+::: {.callout-tip title="Fuzzed eval sets" icon=false collapse=true}
+
+![For example, a set of adversarial prompts and inputs that act as addition/in replacement to the original evaluation samples, as proposed in [PromptBench](https://arxiv.org/pdf/2306.04528.pdf)](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-e8207fbb5dd.png)
 
 :::
 
@@ -256,7 +265,7 @@ Honestly, the line between this method of evaluation and the next is blurry, esp
 
 ### Model-Driven Evaluation
 
-::: {.callout-tip title="Example Papers" icon=false collapse=true}
+::: {.callout-tip title="Papers" icon=false collapse=true}
 
 ![Evaluating responses by comparing to referenced ground truth in [Sparks of AGI](https://arxiv.org/pdf/2303.12712.pdf). Remember this is inclusion of ground truth and possibly the least problematic form of model driven evaluation.](images/case_of_llm_evals/The_Curious_Case_of_LLM_Evaluations-b297c918d95.png)
 
@@ -348,7 +357,8 @@ Why not?
 
 Now a retort might be: But you made those changes, the model did not produce that outcome! The model will always generate outcomes in the distribution!
 
-Fair! But (a) that de-incentivizes training of new models that are have better coverage; and; (b) there is no way someone won’t read that paper and consider — let’s create an LLM based service that proposes to judge interviewees based on LLM scoring.
+Fair! But (a) that de-incentivizes training of new models that are have better coverage; and; (b) there is no way someone won't read that paper and consider --- let's create an LLM based service that proposes to judge interviewees based on LLM scoring.
+
 :::
 
 ## Performance Report
@@ -382,6 +392,7 @@ Mosaic 30B (released on 2023-06-22) explores the idea of combining benchmarks in
 Lastly, we must address the concept of prompt-fine tuning. Numerous research papers present results on the test set by identifying the best prompt for a given task. While this approach may seem reasonable in theory, it fails to provide a reliable measure of the model\'s performance when it comes to solving real-world problems encountered by average users. If the intention is to use the prompt as an auxiliary component in a pipeline, then finding the optimal prompt for the task and model is acceptable. However, for direct user-facing end-to-end models, it is crucial to acknowledge that the best prompt for obtaining the correct answer may not be realistic or feasible for all users, especially in the case of general-purpose models.
 
 ::: {.twitter user=ArmenAgha status_id=1669098472493162497}
+
 :::
 
 > **Side note:** There is a proposal of encrypting and encoding prompts and evaluation. And I completely support that proposal. While in an ideal world we might want opt-in for data, this isn't the case at the moment, and we can safeguard ourselves from train-test leakage concerns.
@@ -394,9 +405,10 @@ In the realm of evaluating language models (LLMs), we find ourselves grappling w
 
 > Our modeling, scaling and generalization techniques grew faster than our benchmarking abilities --- which in turn have resulted in poor evaluation and hyped capabilities. Every ability is amazing and great, if we do not have the tools to figure out what that ability is, or how good the model is at that ability. We'd always believe the model will win every race, if all we do, is have the race on paved roads, with yellow trees on every right turns, and green trees on every left turn.
 
-# Reference Material {#reference-material}
+# Reference Material
 
 > In progress, and definitely not a comprehensive list of everything
 
 ::: {.youtube video_id=oTn_bP-nYv4}
+
 :::
