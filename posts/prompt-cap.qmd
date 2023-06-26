@@ -1,6 +1,4 @@
 ---
-Related Blogposts: []
-URL: null
 categories:
 - Text
 - Evaluation
@@ -17,6 +15,10 @@ notion_url: https://www.notion.so/Prompt-Cap-Making-Sure-Your-Model-Benchmarking
 reference-location: margin
 threeword: 'Evaluate The Prompt!'
 title: Prompt Cap | Making Sure Your Model Benchmarking is Cap or Not-Cap
+filters:
+  - collapse-social-embeds
+  - lightbox
+lightbox: auto
 ---
 # Introduction
 
@@ -58,7 +60,7 @@ In order to do effectively, there are three key components we require:
 
 For details, look at this twitter [thread](https://twitter.com/mcxfrank/status/1643296168276033538).
 
-::: {.twitter .column-margin user=mcxfrank status_id=1643296168276033538 }\
+::: {.twitter user=mcxfrank status_id=1643296168276033538}
 :::
 
 ![](images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-8f14c7d2906.png)
