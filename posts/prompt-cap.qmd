@@ -115,7 +115,7 @@ Let\'s consider an example to illustrate the concept of Sample Markup. In the co
 
 ## Output Schema
 
-The output schema is a complex process that intersects significantly with large language model (LLM) evaluation techniques. If you\'re interested in delving deeper into this topic, I recommend checking out my other post. It provides further insights and information about the intricacies involved in designing and evaluating output schemas for LLMs.
+The output schema is a complex process that intersects significantly with large language model (LLM) evaluation techniques. If you\'re interested in delving deeper into this topic, I recommend checking out [my other post](case-of-llm-evals.qmd). It provides further insights and information about the intricacies involved in designing and evaluating output schemas for LLMs.
 
 ![](images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-2b79a1398a3.png)
 
