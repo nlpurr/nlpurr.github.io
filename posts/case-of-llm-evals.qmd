@@ -56,8 +56,8 @@ Spuriously correlated or duplicated test samples. The evaluation sets for many t
 
 Evaluation dataset splits are hard to deal with. Many evaluation datasets come with a different implementation of the same problem. They might also lead to unintentional leakage. For example, in human centered tasks; it is often the case that the evaluation dataset is not isolated for user and rather split just on samples.
 
-:::{.twitter user=MaartenBosma status_id=1672349512499867648}
-
+::: {.callout-note title="Maarten talks about splits in Trivia QA 1-shot" collapse="false"}
+{{< tweet MaartenBosma 1672349512499867648 >}}
 :::
 
 ### Random seed
@@ -289,8 +289,8 @@ The general explanation provided for such situations is --- but oh, this is how 
 
 For example, this is why the authors of [Textbooks are all you need](https://arxiv.org/abs/2306.11644) believe this is a correct method of evaluation.
 
-:::{.twitter user=EldanRonen status_id=1673107981742010370}
-
+::: {.callout-note title="Ronen talks about why using automated evals is a good idea for textbooks" collapse="false"}
+{{< tweet EldanRonen 1673107981742010370 >}}
 :::
 
 ::: {.callout-note title="Detailed account of why I believe that using GPT-4 as a judge is incorrect in this case" collapse=\"true\" }
@@ -387,8 +387,8 @@ Mosaic 30B (released on 2023-06-22) explores the idea of combining benchmarks in
 
 Lastly, we must address the concept of prompt-fine tuning. Numerous research papers present results on the test set by identifying the best prompt for a given task. While this approach may seem reasonable in theory, it fails to provide a reliable measure of the model\'s performance when it comes to solving real-world problems encountered by average users. If the intention is to use the prompt as an auxiliary component in a pipeline, then finding the optimal prompt for the task and model is acceptable. However, for direct user-facing end-to-end models, it is crucial to acknowledge that the best prompt for obtaining the correct answer may not be realistic or feasible for all users, especially in the case of general-purpose models.
 
-::: {.twitter user=ArmenAgha status_id=1669098472493162497}
-
+::: {.callout-note title="Armen talks about prompt fuzzing" collapse="false"}
+{{< tweet ArmenAgha 1669098472493162497 >}}
 :::
 
 > **Side note:** There is a proposal of encrypting and encoding prompts and evaluation. And I completely support that proposal. While in an ideal world we might want opt-in for data, this isn't the case at the moment, and we can safeguard ourselves from train-test leakage concerns.
