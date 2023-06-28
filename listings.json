@@ -1,13 +1,10 @@
 [
   {
-    "listing": "/lmfttfy/index.html",
-    "items": []
-  },
-  {
-    "listing": "/index.html",
+    "listing": "/posts/index.html",
     "items": [
       "/posts/case-of-llm-evals.html",
-      "/posts/prompt-cap.html"
+      "/posts/prompt-cap.html",
+      "/posts/no_sally_anne_pass_for_gpt4.html"
     ]
   },
   {
@@ -15,10 +12,15 @@
     "items": []
   },
   {
-    "listing": "/posts/index.html",
+    "listing": "/index.html",
     "items": [
       "/posts/case-of-llm-evals.html",
-      "/posts/prompt-cap.html"
+      "/posts/prompt-cap.html",
+      "/posts/no_sally_anne_pass_for_gpt4.html"
     ]
+  },
+  {
+    "listing": "/lmfttfy/index.html",
+    "items": []
   }
 ]
