@@ -53,21 +53,19 @@
 <section id="partitioning-and-phrasing" class="level3">
 <h3 class="anchored" data-anchor-id="partitioning-and-phrasing">Partitioning and phrasing</h3>
 <p>Evaluation dataset splits are hard to deal with. Many evaluation datasets come with a different implementation of the same problem. They might also lead to unintentional leakage. For example, in human centered tasks; it is often the case that the evaluation dataset is not isolated for user and rather split just on samples.</p>
-<div class="tweet">
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-note callout-titled" title="Maarten talks about splits in Trivia QA 1-shot">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Maarten talks about splits in Trivia QA 1-shot
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="tweet-88215"></div><script>tweet={"url":"https:\/\/twitter.com\/MaartenBosma\/status\/1672349512499867648","author_name":"Maarten Bosma","author_url":"https:\/\/twitter.com\/MaartenBosma","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EGood question! PaLM used a different eval split. We have now added our results on that split as well, and we outperform PaLM by quite a margin. \u003Ca href=\"https:\/\/t.co\/mimZE8TSuB\"\u003Epic.twitter.com\/mimZE8TSuB\u003C\/a\u003E\u003C\/p\u003E&mdash; Maarten Bosma (@MaartenBosma) \u003Ca href=\"https:\/\/twitter.com\/MaartenBosma\/status\/1672349512499867648?ref_src=twsrc%5Etfw\"\u003EJune 23, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-88215").innerHTML = tweet["html"];</script>
-</div>
+<p></p><div id="tweet-63108"></div><script>tweet={"url":"https:\/\/twitter.com\/MaartenBosma\/status\/1672349512499867648","author_name":"Maarten Bosma","author_url":"https:\/\/twitter.com\/MaartenBosma","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EGood question! PaLM used a different eval split. We have now added our results on that split as well, and we outperform PaLM by quite a margin. \u003Ca href=\"https:\/\/t.co\/mimZE8TSuB\"\u003Epic.twitter.com\/mimZE8TSuB\u003C\/a\u003E\u003C\/p\u003E&mdash; Maarten Bosma (@MaartenBosma) \u003Ca href=\"https:\/\/twitter.com\/MaartenBosma\/status\/1672349512499867648?ref_src=twsrc%5Etfw\"\u003EJune 23, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-63108").innerHTML = tweet["html"];</script><p></p>
 </div>
 </div>
 </div>
@@ -496,21 +494,19 @@ Papers
 </ul>
 <p>The general explanation provided for such situations is — but oh, this is how humans do this stuff too. So, we are asking GPT-4 to be more humane and avoiding binary labels that we needed initially.</p>
 <p>For example, this is why the authors of <a href="https://arxiv.org/abs/2306.11644">Textbooks are all you need</a> believe this is a correct method of evaluation.</p>
-<div class="tweet">
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-note callout-titled" title="Ronen talks about why using automated evals is a good idea for textbooks">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Ronen talks about why using automated evals is a good idea for textbooks
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="tweet-32155"></div><script>tweet={"url":"https:\/\/twitter.com\/EldanRonen\/status\/1673107981742010370","author_name":"Ronen Eldan","author_url":"https:\/\/twitter.com\/EldanRonen","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EThere&#39;s a reason that in coding exams\/interviews, grades are not only based on whether the code passes unit tests, but rather a human reads through the code and determines the level of understanding reflected from it.\u003C\/p\u003E&mdash; Ronen Eldan (@EldanRonen) \u003Ca href=\"https:\/\/twitter.com\/EldanRonen\/status\/1673107981742010370?ref_src=twsrc%5Etfw\"\u003EJune 25, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-32155").innerHTML = tweet["html"];</script>
-</div>
+<p></p><div id="tweet-15528"></div><script>tweet={"url":"https:\/\/twitter.com\/EldanRonen\/status\/1673107981742010370","author_name":"Ronen Eldan","author_url":"https:\/\/twitter.com\/EldanRonen","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EThere&#39;s a reason that in coding exams\/interviews, grades are not only based on whether the code passes unit tests, but rather a human reads through the code and determines the level of understanding reflected from it.\u003C\/p\u003E&mdash; Ronen Eldan (@EldanRonen) \u003Ca href=\"https:\/\/twitter.com\/EldanRonen\/status\/1673107981742010370?ref_src=twsrc%5Etfw\"\u003EJune 25, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-15528").innerHTML = tweet["html"];</script><p></p>
 </div>
 </div>
 </div>
@@ -629,21 +625,19 @@ font-style: inherit;">"""</span></span></code></pre></div>
 </figure>
 </div>
 </div></div><p>Lastly, we must address the concept of prompt-fine tuning. Numerous research papers present results on the test set by identifying the best prompt for a given task. While this approach may seem reasonable in theory, it fails to provide a reliable measure of the model's performance when it comes to solving real-world problems encountered by average users. If the intention is to use the prompt as an auxiliary component in a pipeline, then finding the optimal prompt for the task and model is acceptable. However, for direct user-facing end-to-end models, it is crucial to acknowledge that the best prompt for obtaining the correct answer may not be realistic or feasible for all users, especially in the case of general-purpose models.</p>
-<div class="tweet">
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-note callout-titled" title="Armen talks about prompt fuzzing">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Armen talks about prompt fuzzing
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="tweet-81258"></div><script>tweet={"url":"https:\/\/twitter.com\/ArmenAgha\/status\/1669098472493162497","author_name":"Armen Aghajanyan","author_url":"https:\/\/twitter.com\/ArmenAgha","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E1. Manually annotate 1k fuzzing prompts\u003Cbr\u003E2. Finetune LLaMa on this 1k a la LIMA\u003Cbr\u003E3. Apply fuzzing to standard benchmarks\u003Cbr\u003E4. Re-evaluate common models?\u003Cbr\u003E\u003Cbr\u003ELikely this will work, not sure if anyone has done this.\u003C\/p\u003E&mdash; Armen Aghajanyan (@ArmenAgha) \u003Ca href=\"https:\/\/twitter.com\/ArmenAgha\/status\/1669098472493162497?ref_src=twsrc%5Etfw\"\u003EJune 14, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-81258").innerHTML = tweet["html"];</script>
-</div>
+<p></p><div id="tweet-67051"></div><script>tweet={"url":"https:\/\/twitter.com\/ArmenAgha\/status\/1669098472493162497","author_name":"Armen Aghajanyan","author_url":"https:\/\/twitter.com\/ArmenAgha","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E1. Manually annotate 1k fuzzing prompts\u003Cbr\u003E2. Finetune LLaMa on this 1k a la LIMA\u003Cbr\u003E3. Apply fuzzing to standard benchmarks\u003Cbr\u003E4. Re-evaluate common models?\u003Cbr\u003E\u003Cbr\u003ELikely this will work, not sure if anyone has done this.\u003C\/p\u003E&mdash; Armen Aghajanyan (@ArmenAgha) \u003Ca href=\"https:\/\/twitter.com\/ArmenAgha\/status\/1669098472493162497?ref_src=twsrc%5Etfw\"\u003EJune 14, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-67051").innerHTML = tweet["html"];</script><p></p>
 </div>
 </div>
 </div>
@@ -767,7 +761,7 @@ Michael Frank talks about need some principles from experimental psychology
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p></p><div id="tweet-37927"></div><script>tweet={"url":"https:\/\/twitter.com\/mcxfrank\/status\/1643296168276033538","author_name":"Michael C. Frank","author_url":"https:\/\/twitter.com\/mcxfrank","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EPeople are testing large language models (LLMs) on their &quot;cognitive&quot; abilities - theory of mind, causality, syllogistic reasoning, etc. Many (most?) of these evaluations are deeply flawed. To evaluate LLMs effectively, we need some principles from experimental psychology.\uD83E\uDDF5 \u003Ca href=\"https:\/\/t.co\/Xlywu3gTVz\"\u003Epic.twitter.com\/Xlywu3gTVz\u003C\/a\u003E\u003C\/p\u003E&mdash; Michael C. Frank (@mcxfrank) \u003Ca href=\"https:\/\/twitter.com\/mcxfrank\/status\/1643296168276033538?ref_src=twsrc%5Etfw\"\u003EApril 4, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-37927").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-36236"></div><script>tweet={"url":"https:\/\/twitter.com\/mcxfrank\/status\/1643296168276033538","author_name":"Michael C. Frank","author_url":"https:\/\/twitter.com\/mcxfrank","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003EPeople are testing large language models (LLMs) on their &quot;cognitive&quot; abilities - theory of mind, causality, syllogistic reasoning, etc. Many (most?) of these evaluations are deeply flawed. To evaluate LLMs effectively, we need some principles from experimental psychology.\uD83E\uDDF5 \u003Ca href=\"https:\/\/t.co\/Xlywu3gTVz\"\u003Epic.twitter.com\/Xlywu3gTVz\u003C\/a\u003E\u003C\/p\u003E&mdash; Michael C. Frank (@mcxfrank) \u003Ca href=\"https:\/\/twitter.com\/mcxfrank\/status\/1643296168276033538?ref_src=twsrc%5Etfw\"\u003EApril 4, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-36236").innerHTML = tweet["html"];</script><p></p>
 </div>
 </div>
 </div></div><div class="quarto-figure quarto-figure-center">
