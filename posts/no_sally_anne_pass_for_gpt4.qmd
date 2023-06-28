@@ -2,6 +2,7 @@
 categories:
 - Foundation Models
 - Evaluation
+- Prompting
 - Theory of Mind
 citation-location: margin
 date: '2023-04-10'
