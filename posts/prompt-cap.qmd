@@ -56,9 +56,8 @@ In order to do effectively, there are three key components we require:
 
 ## Prompt Based Experimental Design Schemas
 
-For details, look at this twitter [thread](https://twitter.com/mcxfrank/status/1643296168276033538).
-
-::: {.twitter user=mcxfrank status_id=1643296168276033538}
+::: {.column-margin .callout-note title="Michael Frank talks about need some principles from experimental psychology" collapse="false"}
+{{< tweet mcxfrank 1643296168276033538 >}}
 :::
 
 ![](images/prompt-cap/Prompt_Cap__Making_Sure_Your_Model_Benchmarking_is_Cap_or_Not-Cap-8f14c7d2906.png)
