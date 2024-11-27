@@ -1,10 +1,10 @@
 {
-	"database-id": "169b6e632b7448529120599281265ac5",
-	"author": "",
+	"database-id": "6c345d61f97d45cd833bab62e14093fa",
+	"author": "NLPurr",
 	"tracking": {
 		"google-analytics": {
 			"use-ga": true,
-			"public-ga-tracking-id": ""
+			"public-ga-tracking-id": "G-JC3Y1HMX55"
 		},
 		"umami": {
 			"use-umami": false,
@@ -13,42 +13,39 @@
 			"self-hosted-umami-url": ""
 		}
 	},
-	"google-search-console-html-tag": "",
+	"google-search-console-html-tag": "OgBngdRWRzW0NQtLRTlcvfSKDNVGlchB_KOT56iC1Ok",
 	"socials": {
-		"email": "",
+		"email": "mailto:nlpurr.cat@gmail.com",
 		"github": "",
 		"googlescholar": "",
 		"semanticscholar": "",
 		"dblp": "",
-		"substack": "",
 		"facebook": "",
-		"twitter": "",
+		"twitter": "https://twitter.com/NLPurr",
 		"threads": "",
 		"instagram": "",
 		"mastodon": "",
-		"bluesky": "",
+		"bluesky": "https://bsky.app/profile/nlpurr.bsky.social",
 		"calendar": "",
-		"kofi": "",
-		"buy-me-a-coffee": "",
-		"this-github-repo": "https://github.com/nerdymomocat-templates/webtrotion-astro-notion-cms-website-blog"
+		"this-github-repo": ""
 	},
 	"custom-domain": "",
 	"base-path": "",
 	"giscus": {
-		"data-repo": "nerdymomocat-templates/webtrotion-astro-notion-cms-website-blog",
-		"data-repo-id": "R_kgDOK0FuUA",
+		"data-repo": "nlpurr/nlpurr.github.io",
+		"data-repo-id": "R_kgDOK13-6w",
 		"data-category": "Announcements",
-		"data-category-id": "DIC_kwDOK0FuUM4CbZ5A",
+		"data-category-id": "DIC_kwDOK13-684CbgiZ",
 		"data-mapping": "pathname",
 		"data-input-position": "top",
 		"data-reactions-enabled": true
 	},
 	"bluesky-comments": {
-		"show-comments-from-bluesky": false,
+		"show-comments-from-bluesky": true,
 		"auto-search-for-match": {
-			"turn-on-auto-search": false,
-			"author": "",
-			"echo-feed-emoji": ""
+			"turn-on-auto-search": true,
+			"author": "nlpurr.bsky.social",
+			"echo-feed-emoji": "💬"
 		}
 	},
 	"references": {
@@ -73,7 +70,7 @@
 		"shiki-transform": "<<shiki-transform>>",
 		"table": "<<🗂️>>"
 	},
-	"recent-posts-on-home-page": false,
+	"recent-posts-on-home-page": true,
 	"theme": {
 		"colors": {
 			"bg": {
@@ -102,10 +99,10 @@
 			}
 		},
 		"fontfamily-google-fonts": {
-			"combined-url": "https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap",
-			"sans-font-name": "Roboto",
+			"combined-url": "https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100;200;300;400;500;600;700&family=Rubik:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap",
+			"sans-font-name": "Rubik",
 			"serif-font-name": "",
-			"mono-font-name": "Roboto\\ Mono"
+			"mono-font-name": "Martian\\ Mono"
 		}
 	},
 	"webmention": {
@@ -117,7 +114,7 @@
 	"request-timeout-ms": "10000",
 	"menu-pages-collection": "main",
 	"heading-blocks": ["heading_1", "heading_2", "heading_3"],
-	"full-preview-collections": ["Stream"],
+	"full-preview-collections": [],
 	"hide-underscore-slugs-in-lists": true,
 	"home-page-slug": "",
 	"all-footnotes-page-slug": "_all-footnotes",
@@ -129,5 +126,9 @@
 	},
 	"full-width-social-embeds": false,
 	"optimize-images": true,
-	"redirects": {}
+	"redirects": {
+		"/posts/case-of-llm-evals.html": "/posts/case-of-llm-evals/",
+		"/posts/no_sally_anne_pass_for_gpt4.html": "/posts/no-sally-anne-pass-for-gpt4/",
+		"/posts/prompt-cap.html": "/posts/prompt-cap/"
+	}
 }
