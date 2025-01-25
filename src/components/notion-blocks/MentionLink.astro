@@ -46,18 +46,18 @@ const truncatedHref = Href && Href.length > 30 ? Href.slice(0, 30) + '...' : Hre
 			>
 				{IconUrl ? (
 					<>
-						<img src={IconUrl} alt="" class="inline h-4 w-4 mb-0.5 flex-shrink-0 align-sub" />{" "}
+						<img src={IconUrl} alt="" class="inline h-4 w-4 mb-0.5 flex-shrink-0 align-sub no-rss" />{" "}
 					</>
 				):
         <>
-        <Icon name={"external-link-mention"} class="inline h-4 w-4 mb-0.5" aria-hidden="true" />{" "}
+        <Icon name={"external-link-mention"} class="inline h-4 w-4 mb-0.5 align-sub" aria-hidden="true" />{" "}
         </>}
 				{LinkProvider && LinkProvider!==Title && (
 					<>
 						<span class="text-link/80">{LinkProvider}</span>{" "}
 					</>
 				)}
-				{Title && <span class="font-medium text-link">{Title}</span>}
+				{Title && <span class="text-link">{Title}</span>}
 			</a>
 		</>
 	) : (
@@ -72,11 +72,11 @@ const truncatedHref = Href && Href.length > 30 ? Href.slice(0, 30) + '...' : Hre
 			>
 				{IconUrl ? (
 					<>
-						<img src={IconUrl} alt="" class="inline h-4 w-4 mb-0.5 flex-shrink-0 align-sub" />{" "}
+						<img src={IconUrl} alt="" class="inline h-4 w-4 mb-0.5 flex-shrink-0 align-sub no-rss" />{" "}
 					</>
 				):
         <>
-        <Icon name={"external-link-mention"} class="inline h-4 w-4 mb-0.5" aria-hidden="true" />{" "}
+        <Icon name={"external-link-mention"} class="inline h-4 w-4 mb-0.5 align-sub" aria-hidden="true" />{" "}
         </>}
         {LinkProvider && LinkProvider!==Title && LinkProvider!==LinkAuthor && (
 					<>
@@ -88,7 +88,7 @@ const truncatedHref = Href && Href.length > 30 ? Href.slice(0, 30) + '...' : Hre
 						<span class="text-link/80">{LinkAuthor}</span>{" "}
 					</>
 				)}
-				{Title && <span class="font-medium text-link">{Title}</span>}
+				{Title && <span class="text-link">{Title}</span>}
 			</a>
 		</>
 	)
@@ -129,18 +129,18 @@ const truncatedHref = Href && Href.length > 30 ? Href.slice(0, 30) + '...' : Hre
 
 }
 <div class="mx-4 my-2 gap-2">
-  {Title && <div class="font-medium text-sm line-clamp-2">{Title}</div>}
+  {Title && <div class="text-sm line-clamp-2">{Title}</div>}
   {Description && <div class="text-xs line-clamp-3">{Description}</div>}
 <div class="mt-4">
 {IconUrl ? (
 					<>
-						<img src={IconUrl} alt="" class="inline h-4 w-4 mb-0.5 flex-shrink-0 align-sub" />{" "}
+						<img src={IconUrl} alt="" class="inline h-4 w-4 mb-0.5 flex-shrink-0 align-sub no-rss" />{" "}
 					</s>
 				):
         <>
-        <Icon name={"external-link-mention"} class="inline h-4 w-4 mb-0.5" aria-hidden="true" />{" "}
+        <Icon name={"external-link-mention"} class="inline h-4 w-4 mb-0.5 align-sub" aria-hidden="true" />{" "}
         </>}
-        {Href && <span class="text-xs font-medium text-link/80">{truncatedHref}</span>}
+        {Href && <span class="text-xs text-link/80">{truncatedHref}</span>}
       </div>
       </div>
   </a>)}

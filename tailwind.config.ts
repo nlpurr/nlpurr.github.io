@@ -154,8 +154,8 @@ export default {
 		require("@tailwindcss/aspect-ratio"),
 		plugin(function ({ addComponents }) {
 			addComponents({
-				".webtrotion-page-link": {
-					"@apply underline decoration-wavy decoration-accent-2/20 hover:decoration-accent-2/40 underline-offset-2 hover:underline":
+				".site-page-link": {
+					"@apply underline decoration-wavy decoration-from-font decoration-accent-2/20 hover:decoration-accent-2/40 underline-offset-2 hover:underline":
 						{},
 				},
 				".title": {

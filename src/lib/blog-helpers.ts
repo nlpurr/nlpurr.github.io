@@ -322,10 +322,6 @@ export const buildURLToHTMLMap = async (urls: URL[]): Promise<{ [key: string]: s
 	}, {});
 };
 
-export const getStaticFilePath = (pathsup: string): string => {
-	return path.join(BASE_PATH, pathsup);
-};
-
 export const getNavLink = (nav: string) => {
 	if (!nav && BASE_PATH) {
 		return path.join(BASE_PATH, "") + "/";
@@ -454,37 +450,6 @@ export const getPostLink = (slug: string, isRoot: boolean = false) => {
 	return linkedPath;
 };
 
-export const getTagLink = (tag: string) => {
-	return path.join(BASE_PATH, `/posts/tag/${encodeURIComponent(tag)}`);
-};
-
-export const getPageLink = (page: number, tag: string) => {
-	if (page === 1) {
-		return tag ? getTagLink(tag) : path.join(BASE_PATH, "/");
-	}
-	return tag
-		? path.join(BASE_PATH, `/posts/tag/${encodeURIComponent(tag)}/page/${page.toString()}`)
-		: path.join(BASE_PATH, `/posts/page/${page.toString()}`);
-};
-
-export const getDateStr = (date: string) => {
-	const dt = new Date(date);
-
-	if (date.indexOf("T") !== -1) {
-		// Consider timezone
-		const elements = date.split("T")[1].split(/([+-])/);
-		if (elements.length > 1) {
-			const diff = parseInt(`${elements[1]}${elements[2]}`, 10);
-			dt.setHours(dt.getHours() + diff);
-		}
-	}
-
-	const y = dt.getFullYear();
-	const m = ("00" + (dt.getMonth() + 1)).slice(-2);
-	const d = ("00" + dt.getDate()).slice(-2);
-	return y + "-" + m + "-" + d;
-};
-
 export const buildHeadingId = (heading: Heading1 | Heading2 | Heading3) => {
 	return slugify(
 		heading.RichTexts.map((richText: RichText) => {
@@ -587,6 +552,45 @@ export const isFullAmazonURL = (url: URL): boolean => {
 export const isAmazonURL = (url: URL): boolean => {
 	return isShortAmazonURL(url) || isFullAmazonURL(url);
 };
+
+export const isNotionEmbedURL = (url: URL): boolean => {
+	// Extract hostname and check the pattern
+	const hostname = url.hostname; // e.g., "subdomain.notion.site"
+	const hostnameParts = hostname.split(".");
+
+	// Expecting hostname like "{subdomain}.notion.site"
+	if (hostnameParts.length !== 3) {
+		return false;
+	}
+
+	const [subdomain, domain, tld] = hostnameParts;
+
+	// Check that the domain is 'notion.site'
+	if (domain !== "notion" || tld !== "site") {
+		return false;
+	}
+
+	// Ensure subdomain is one word without dots
+	if (!subdomain || subdomain.includes(".")) {
+		return false;
+	}
+
+	// Check that the path starts with '/ebd/'
+	const pathname = url.pathname;
+	if (!pathname.startsWith("/ebd/")) {
+		return false;
+	}
+
+	// Check if 'pvs=73' is present in query parameters
+	const searchParams = new URLSearchParams(url.search);
+	if (searchParams.get("pvs") !== "73") {
+		return false;
+	}
+
+	// All checks passed
+	return true;
+};
+
 export const isYouTubeURL = (url: URL): boolean => {
 	if (["www.youtube.com", "youtube.com", "youtu.be"].includes(url.hostname)) {
 		return true;
@@ -637,25 +641,63 @@ export const parseYouTubeVideoIdTitle = async (url: URL): Promise<[string, strin
 export const isEmbeddableURL = async (url: URL): Promise<boolean> => {
 	try {
 		const urlString = url.toString();
-		const response = await fetch(urlString, { method: "HEAD" });
-		const xFrameOptions = response.headers.get("x-frame-options");
-		const contentSecurityPolicy = response.headers.get("content-security-policy");
+		const response = await fetch(urlString, {
+			method: "HEAD",
+			headers: {
+				"User-Agent": "Mozilla/5.0 (compatible; EmbedChecker/1.0)",
+			},
+		});
 
-		if (
-			xFrameOptions &&
-			(xFrameOptions.toLowerCase() === "deny" || xFrameOptions.toLowerCase() === "sameorigin")
-		) {
+		if (!response.ok) {
 			return false;
 		}
 
-		if (contentSecurityPolicy && contentSecurityPolicy.includes("frame-ancestors")) {
-			// Further parsing might be required here to interpret the CSP policy
-			return false;
+		const xFrameOptions = response.headers.get("x-frame-options");
+		const contentSecurityPolicy = response.headers.get("content-security-policy");
+
+		// Check X-Frame-Options header
+		if (xFrameOptions) {
+			const xfoValue = xFrameOptions.toLowerCase();
+			if (xfoValue === "deny" || xfoValue === "sameorigin") {
+				return false;
+			}
+		}
+
+		// Check Content-Security-Policy header
+		if (contentSecurityPolicy) {
+			const cspValue = contentSecurityPolicy.toLowerCase();
+
+			// Look for frame-ancestors directive
+			const frameAncestorsMatch = cspValue
+				.split(";")
+				.find((directive) => directive.trim().startsWith("frame-ancestors"));
+
+			if (frameAncestorsMatch) {
+				const values = frameAncestorsMatch.split(" ").slice(1);
+
+				// Not embeddable if:
+				// 1. frame-ancestors is 'none'
+				// 2. doesn't include '*' or your domain
+				if (values.includes("'none'")) {
+					return false;
+				}
+
+				// If it includes '*' or your domain, it's embeddable
+				if (values.includes("*")) {
+					return true;
+				}
+
+				// Check if your domain is allowed
+				const yourDomain = new URL(urlString).origin;
+				if (!values.some((v) => v === "'self'" || v === yourDomain)) {
+					return false;
+				}
+			}
 		}
 
 		return true;
 	} catch (error) {
-		console.error("Error checking URL: ", error);
+		console.error("Error checking URL:", error);
 		return false;
 	}
 };
